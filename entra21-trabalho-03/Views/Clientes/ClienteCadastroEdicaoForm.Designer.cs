@@ -158,7 +158,7 @@
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 13;
-            this.buttonSalvar.Text = "buttonSalvar";
+            this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
             // 
             // ClienteCadastroEdicaoForm
