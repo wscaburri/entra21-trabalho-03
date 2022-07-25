@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
@@ -40,12 +47,62 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
+            this.ColumnNome,
+            this.ColumnCnpj,
+            this.ColumnCidade,
+            this.ColumnBairro,
+            this.ColumnLogradouro,
+            this.ColumnNumero});
             this.dataGridView1.Location = new System.Drawing.Point(8, 51);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(420, 395);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnCnpj
+            // 
+            this.ColumnCnpj.HeaderText = "CNPJ";
+            this.ColumnCnpj.Name = "ColumnCnpj";
+            this.ColumnCnpj.ReadOnly = true;
+            // 
+            // ColumnCidade
+            // 
+            this.ColumnCidade.HeaderText = "Cidade";
+            this.ColumnCidade.Name = "ColumnCidade";
+            this.ColumnCidade.ReadOnly = true;
+            // 
+            // ColumnBairro
+            // 
+            this.ColumnBairro.HeaderText = "Bairro";
+            this.ColumnBairro.Name = "ColumnBairro";
+            this.ColumnBairro.ReadOnly = true;
+            // 
+            // ColumnLogradouro
+            // 
+            this.ColumnLogradouro.HeaderText = "Logradouro";
+            this.ColumnLogradouro.Name = "ColumnLogradouro";
+            this.ColumnLogradouro.ReadOnly = true;
+            // 
+            // ColumnNumero
+            // 
+            this.ColumnNumero.HeaderText = "Numero";
+            this.ColumnNumero.Name = "ColumnNumero";
+            this.ColumnNumero.ReadOnly = true;
             // 
             // buttonCadastrar
             // 
@@ -87,6 +144,7 @@
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FarmaciaListagemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FarmaciaListagemForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -99,5 +157,12 @@
         private Button buttonCadastrar;
         private Button buttonEditar;
         private Button buttonApagar;
+        private DataGridViewTextBoxColumn ColumnId;
+        private DataGridViewTextBoxColumn ColumnNome;
+        private DataGridViewTextBoxColumn ColumnCnpj;
+        private DataGridViewTextBoxColumn ColumnCidade;
+        private DataGridViewTextBoxColumn ColumnBairro;
+        private DataGridViewTextBoxColumn ColumnLogradouro;
+        private DataGridViewTextBoxColumn ColumnNumero;
     }
 }

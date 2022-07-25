@@ -1,4 +1,5 @@
 ﻿using entra21_trabalho_03.Services;
+using System.Data.SqlClient;
 
 namespace entra21_trabalho_03.Views.Farmacias
 {
@@ -49,7 +50,7 @@ namespace entra21_trabalho_03.Views.Farmacias
 
                 PreencherDataGridView();
             }
-            catch
+            catch (SqlException)
             {
                 MessageBox.Show("Não foi possivel buscar este registro!");
             }
@@ -119,7 +120,11 @@ namespace entra21_trabalho_03.Views.Farmacias
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
+            var farmaciaForm = new FarmaciaCadastroEdicaoForm();
 
+            farmaciaForm.ShowDialog();
+
+            PreencherDataGridView();
         }
     }//TODO: Refatorar FarmaciaListagemForm com novo exemplo do professor
-}
+}//TODO: Fazer buttonEditar funcionar

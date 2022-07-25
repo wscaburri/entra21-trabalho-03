@@ -102,13 +102,13 @@ WHERE id = @ID";
                 var registro = tabelaEmMemoria.Rows[i];
 
                 var farmacia = new Farmacia();
-                farmacia.Id = Convert.ToInt32(registro["id"]);
+                farmacia.Id = Convert.ToInt32(registro["id"].ToString());
                 farmacia.Nome = registro["nome"].ToString();
                 farmacia.Cnpj = registro["cnpj"].ToString();
                 farmacia.Cidade = registro["cidade"].ToString();
                 farmacia.Bairro = registro["bairro"].ToString();
                 farmacia.Logradouro = registro["logradouro"].ToString();
-                farmacia.Numero = Convert.ToInt32(registro["numero"]);
+                //farmacia.Numero = Convert.ToInt32(registro["numero"].ToString());
 
                 farmacias.Add(farmacia);
             }
@@ -118,4 +118,5 @@ WHERE id = @ID";
             return farmacias;
         }
     }//TODO: Refatorar a Classe FarmaciaService com novo exemplo professor
+    //TODO: FarmaciaService atualizar metodo ObertTodas()
 }

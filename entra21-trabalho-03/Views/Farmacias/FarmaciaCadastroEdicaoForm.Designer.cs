@@ -52,6 +52,7 @@
             this.buttonSalvar.TabIndex = 0;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonCancelar
             // 
@@ -179,6 +180,7 @@
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
             this.Name = "FarmaciaCadastroEdicaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FarmaciaCadastroEdicaoForm";
             this.ResumeLayout(false);
             this.PerformLayout();
