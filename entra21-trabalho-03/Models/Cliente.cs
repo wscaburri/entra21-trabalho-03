@@ -4,10 +4,10 @@
     {
         public int Id { get; set; }
         public string NomeCompleto { get; set; }
-        public int Cpf { get; set; }
-        public int Rg { get; set; }
+        public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
+        public string Cep { get; set; }
         public string Endereco { get; set; }
-        public int Cep { get; set; }
+        public int Numero { get; set; }
     }
 }
