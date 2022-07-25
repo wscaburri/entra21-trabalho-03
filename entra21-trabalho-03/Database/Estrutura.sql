@@ -3,6 +3,17 @@
 	nome VARCHAR(120),
 	observacao TEXT);
 
+CREATE TABLE cliente(
+	id INTEGER PRIMARY KEY IDENTITY(1,1),
+	nome VARCHAR(100),
+	cpf VARCHAR(14),
+	data_nascimento DATETIME2,
+	cep VARCHAR(9),
+	endereco VARCHAR(100),
+	numero INTEGER
+);
+
+
 CREATE TABLE farmacia(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
