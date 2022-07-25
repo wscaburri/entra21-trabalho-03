@@ -1,3 +1,5 @@
+using entra21_trabalho_03.Views;
+
 namespace entra21_trabalho_03
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace entra21_trabalho_03
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MenuPrincipalForm());
         }
     }
 }

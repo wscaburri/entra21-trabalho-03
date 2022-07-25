@@ -181,7 +181,7 @@
             this.Controls.Add(this.buttonSalvar);
             this.Name = "FarmaciaCadastroEdicaoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FarmaciaCadastroEdicaoForm";
+            this.Text = "Cadastro/Edição de Farmacias";
             this.ResumeLayout(false);
             this.PerformLayout();
 

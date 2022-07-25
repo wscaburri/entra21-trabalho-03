@@ -145,7 +145,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FarmaciaListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FarmaciaListagemForm";
+            this.Text = "Lista de Farmacias";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
