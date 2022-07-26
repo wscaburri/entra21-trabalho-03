@@ -119,5 +119,4 @@ WHERE id = @ID";
             return farmacias;
         }
     }//TODO: Refatorar a Classe FarmaciaService com novo exemplo professor
-    //TODO: FarmaciaService atualizar metodo ObertTodas()
 }
