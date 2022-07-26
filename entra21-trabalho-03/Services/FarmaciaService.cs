@@ -58,7 +58,8 @@ VALUES(
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT id, nome, cnpj, cidade, bairro, logradouro, numero
+            comando.CommandText = @"SELECT id, nome, cnpj, cidade, bairro, logradouro, numero 
+FROM farmacia
 WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID", id);

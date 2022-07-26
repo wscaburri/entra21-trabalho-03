@@ -22,13 +22,6 @@ namespace entra21_trabalho_03.Views.Farmacias
 
         private void EditarDados()
         {
-            if(dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("Nunhuma farmacia cadastrado");
-
-                return;
-            }
-
             if(dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Nunhuma farmacia selecionado");
@@ -38,22 +31,14 @@ namespace entra21_trabalho_03.Views.Farmacias
 
             var registroSelecionado = dataGridView1.SelectedRows[0];
 
-            var idRegistroSelecionado = Convert.ToInt32(registroSelecionado.Cells[0].Value);
+            var id = Convert.ToInt32(registroSelecionado.Cells[0].Value);
 
-            try
-            {
-                var farmacia = _farmaciaService.ObterPorId(idRegistroSelecionado);
+                var farmacia = _farmaciaService.ObterPorId(id);
 
                 var farmaciaForm = new FarmaciaCadastroEdicaoForm(farmacia);
-
                 farmaciaForm.ShowDialog();
 
                 PreencherDataGridView();
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Não foi possivel buscar este registro!");
-            }
         }
 
         private void PreencherDataGridView()

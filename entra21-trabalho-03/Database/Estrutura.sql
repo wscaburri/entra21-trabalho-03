@@ -17,7 +17,7 @@ CREATE TABLE cliente(
 CREATE TABLE farmacia(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
-	cnpj VARCHAR(13),
+	cnpj VARCHAR(14),
 	cidade VARCHAR(100),
 	bairro VARCHAR(50),
 	logradouro VARCHAR(100),
@@ -26,9 +26,11 @@ CREATE TABLE farmacia(
 
 SELECT * FROM farmacia;
 
-INSERT INTO farmacia (nome, cidade) VALUES
-('Claúdio', 'Bnu City'),
-('Tete', 'Bc City');
+INSERT INTO farmacia (nome, cnpj, cidade, bairro, logradouro, numero) VALUES
+('Claúdio', '18968241000194', 'Bnu City', 'Progresso', 'Rua Progreso', 154);
+
 
 SELECT * FROM farmacia;
- 
+
+INSERT INTO farmacia (nome, cnpj, cidade, bairro, logradouro, numero) VALUES
+('Tete', '18968241000194', 'Bc City', 'Zendron', 'Rua Antonio', 587);
