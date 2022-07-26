@@ -160,6 +160,7 @@
             this.buttonSalvar.TabIndex = 13;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // ClienteCadastroEdicaoForm
             // 
