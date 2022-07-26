@@ -1,4 +1,5 @@
-﻿using entra21_trabalho_03.Views.Farmacias;
+﻿using entra21_trabalho_03.Views.EstoqueProdutos;
+using entra21_trabalho_03.Views.Farmacias;
 
 namespace entra21_trabalho_03.Views
 {
@@ -13,6 +14,12 @@ namespace entra21_trabalho_03.Views
         {
             var farmaciaForm = new FarmaciaListagemForm();
             farmaciaForm.ShowDialog();
+        }
+
+        private void buttonCadastroEstoque_Click(object sender, EventArgs e)
+        {
+            var estoqueProdutoForm = new EstoqueListagemForm();
+            estoqueProdutoForm.ShowDialog();
         }
     }
 }

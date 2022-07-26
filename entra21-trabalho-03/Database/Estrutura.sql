@@ -54,3 +54,8 @@ SELECT * FROM estoque_produto;
 INSERT INTO estoque_produto (nome, quantidade_produto, validade_produto, data_produto_entrada_estoque) 
 	VALUES
 		('respiridona', 15, '2024/05/14', '2022/07/26');
+		
+INSERT INTO estoque_produto (nome, quantidade_produto, validade_produto, data_produto_entrada_estoque) 
+	VALUES
+		('respiridona', 15, '2024/05/14', '2022/07/26');
+

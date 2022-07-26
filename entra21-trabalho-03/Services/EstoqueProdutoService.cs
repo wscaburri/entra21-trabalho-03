@@ -32,7 +32,7 @@ quantidade_produto, validade_produto, data_produto_entrada_estoque) VALUES
             comando.Parameters.AddWithValue("@NOME", estoqueProduto.Nome);
             comando.Parameters.AddWithValue("@QUANTIDADE_PRODUTO", estoqueProduto.QuantidadeProduto);
             comando.Parameters.AddWithValue("@VALIDADE_PRODUTO", estoqueProduto.ValidadeProduto);
-            comando.Parameters.AddWithValue("@DATA_ENTRADA_PRODUTO_ESTOQUE", estoqueProduto.EntradaProdutoEstoque);
+            comando.Parameters.AddWithValue("@DATA_PRODUTO_ENTRADA_ESTOQUE", estoqueProduto.EntradaProdutoEstoque);
 
             comando.ExecuteNonQuery();
 
@@ -106,13 +106,13 @@ ep.id AS 'id',
 ep.nome AS 'nome',
 ep.quantidade_produto AS 'quantidade_produto',
 ep.validade_produto AS 'validade_produto',
-ep.data_entrada_produto_estoque AS 'data_entrada_produto_estoque'
+ep.data_produto_entrada_estoque AS 'data_produto_entrada_estoque',
 f.id AS 'farmacia_id',
 f.nome AS 'farmacia_nome',
 tp.id AS 'tipo_produto_id',
 tp.nome AS 'tipo_produto_nome'
-FROM estoqueProduto AS ep
-INNER JOIN farmacia AS f ON(ep.id_farmacia = f.id),
+FROM estoque_produto AS ep
+INNER JOIN farmacia AS f ON(ep.id_farmacia = f.id)
 INNER JOIN tipo_produto AS tp ON(ep.id_tipo_produto = tp.id)";
 
             var tabelaEmMemoria = new DataTable();
@@ -129,13 +129,13 @@ INNER JOIN tipo_produto AS tp ON(ep.id_tipo_produto = tp.id)";
                 estoqueProduto.Nome = registro["nome"].ToString();
                 estoqueProduto.QuantidadeProduto = Convert.ToInt32(registro["quantidade_produto"]);
                 estoqueProduto.ValidadeProduto = Convert.ToDateTime(registro["validade_produto"]);
-                estoqueProduto.EntradaProdutoEstoque = Convert.ToDateTime(registro["data_entrada_produto_estoque"]);
                 estoqueProduto.Farmacia = new Farmacia();
                 estoqueProduto.Farmacia.Id = Convert.ToInt32(registro["farmacia_id"]);
                 estoqueProduto.Farmacia.Nome = registro["farmacia_nome"].ToString();
                 estoqueProduto.TipoProduto = new TipoProduto();
                 estoqueProduto.TipoProduto.Id = Convert.ToInt32(registro["tipo_produto_id"]);
                 estoqueProduto.TipoProduto.Nome = registro["tipo_produto_nome"].ToString();
+                estoqueProduto.EntradaProdutoEstoque = Convert.ToDateTime(registro["data_produto_entrada_estoque"]);
 
                 estoqueProdutos.Add(estoqueProduto);
             }
@@ -144,3 +144,4 @@ INNER JOIN tipo_produto AS tp ON(ep.id_tipo_produto = tp.id)";
         }
     }
 }
+//TODO: Refatora codigo EstoqueProdutoService

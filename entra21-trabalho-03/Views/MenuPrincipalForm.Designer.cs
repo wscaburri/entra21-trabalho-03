@@ -90,8 +90,9 @@
             this.buttonCadastroEstoque.TabIndex = 5;
             this.buttonCadastroEstoque.Text = "Cadastro de Estoque";
             this.buttonCadastroEstoque.UseVisualStyleBackColor = true;
+            this.buttonCadastroEstoque.Click += new System.EventHandler(this.buttonCadastroEstoque_Click);
             // 
-            // MenuForm
+            // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +103,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "MenuForm";
+            this.Name = "MenuPrincipalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
             this.ResumeLayout(false);
