@@ -111,5 +111,10 @@ namespace entra21_trabalho_03.Views.Farmacias
 
             PreencherDataGridView();
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditarDados();
+        }
     }//TODO: Refatorar FarmaciaListagemForm com novo exemplo do professor
-}//TODO: Fazer buttonEditar funcionar
+}

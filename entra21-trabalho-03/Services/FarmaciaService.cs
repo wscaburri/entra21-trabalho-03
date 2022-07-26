@@ -109,7 +109,7 @@ WHERE id = @ID";
                 farmacia.Cidade = registro["cidade"].ToString();
                 farmacia.Bairro = registro["bairro"].ToString();
                 farmacia.Logradouro = registro["logradouro"].ToString();
-                //farmacia.Numero = Convert.ToInt32(registro["numero"].ToString());
+                farmacia.Numero = Convert.ToInt32(registro["numero"].ToString());
 
                 farmacias.Add(farmacia);
             }
