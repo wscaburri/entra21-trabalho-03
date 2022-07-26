@@ -10,7 +10,7 @@ namespace entra21_trabalho_03.Services
 
         void Apagar(int id);
 
-        Cliente ObterPorId();
+        Cliente ObterPorId(int id);
 
         void Editar(Cliente cliente);
     }
