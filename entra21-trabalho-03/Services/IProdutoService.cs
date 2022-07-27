@@ -1,11 +1,13 @@
-﻿namespace entra21_trabalho_03.Services
+﻿using entra21_trabalho_03.Models;
+
+namespace entra21_trabalho_03.Services
 {
-    internal class IProdutoService
+    internal interface IProdutoService
     {
         //List<Produto> ObterTodos();
-        //Produto ObterPorId(int id);
-        //void Cadastrar(Produto produto);
-        //void Editar(Produto produto);
-        //void Apagar(int id);
+        Produto1 ObterPorId(int id);
+        void Cadastrar(Produto1 personagem);
+        void Editar(Produto1 personagem);
+        void Apagar(int id);
     }
 }
