@@ -12,6 +12,8 @@ namespace entra21_trabalho_03.Views.TipoProdutos
             InitializeComponent();
 
             tipoProdutoService = new TipoProdutoService();
+
+            AtualizarRegistrosDataGridView();
         }
 
         private void TipoProdutoListagemForm_Load(object sender, EventArgs e)

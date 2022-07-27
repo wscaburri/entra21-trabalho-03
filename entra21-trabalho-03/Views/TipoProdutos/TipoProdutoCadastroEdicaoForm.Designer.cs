@@ -36,7 +36,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(378, 219);
+            this.buttonCancelar.Location = new System.Drawing.Point(287, 65);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(94, 29);
             this.buttonCancelar.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(460, 134);
+            this.buttonSalvar.Location = new System.Drawing.Point(401, 65);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(94, 29);
             this.buttonSalvar.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 374);
+            this.ClientSize = new System.Drawing.Size(547, 129);
             this.Controls.Add(this.textBoxTipoProd);
             this.Controls.Add(this.labelTipoProduto);
             this.Controls.Add(this.buttonSalvar);

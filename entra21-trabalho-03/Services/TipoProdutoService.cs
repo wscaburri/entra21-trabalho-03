@@ -13,7 +13,7 @@ namespace entra21_trabalho_03.Services
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "DELETE FROM tipos_produto WHERE id = @ID";
+            comando.CommandText = "DELETE FROM tipo_produto WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             comando.ExecuteNonQuery();
@@ -57,7 +57,7 @@ namespace entra21_trabalho_03.Services
 
             var comando = conexao.CreateCommand();
             comando.CommandText =
-                "SELECT id, nome FROM tipos_produto WHERE id = @ID";
+                "SELECT id, nome FROM tipo_produto WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             var tabelaEmMemoria = new DataTable();

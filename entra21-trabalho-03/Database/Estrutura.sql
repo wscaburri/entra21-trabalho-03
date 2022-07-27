@@ -2,6 +2,17 @@
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(120));
 
+CREATE TABLE produto(
+	id INTEGER PRIMARY KEY IDENTITY(1,1),
+
+	id_tipo_produto INTEGER,
+
+	nome VARCHAR(100),
+	data_vencimento DATETIME2,
+	preco DECIMAL
+	
+	FOREIGN KEY (id_tipo_produto) REFERENCES tipo_produto(id));
+
 CREATE TABLE cliente(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),

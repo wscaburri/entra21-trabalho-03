@@ -32,22 +32,30 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.ColumnProduto});
             this.dataGridView1.Location = new System.Drawing.Point(12, 57);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(801, 285);
+            this.dataGridView1.Size = new System.Drawing.Size(427, 285);
             this.dataGridView1.TabIndex = 0;
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(520, 12);
+            this.buttonEditar.Location = new System.Drawing.Point(445, 57);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(94, 29);
             this.buttonEditar.TabIndex = 1;
@@ -57,7 +65,7 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(620, 12);
+            this.buttonApagar.Location = new System.Drawing.Point(445, 113);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(94, 29);
             this.buttonApagar.TabIndex = 2;
@@ -67,7 +75,7 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(720, 12);
+            this.buttonCadastrar.Location = new System.Drawing.Point(445, 171);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(94, 29);
             this.buttonCadastrar.TabIndex = 3;
@@ -75,11 +83,27 @@
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "Código";
+            this.ColumnID.MinimumWidth = 6;
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 125;
+            // 
+            // ColumnProduto
+            // 
+            this.ColumnProduto.HeaderText = "Tipo do Produto";
+            this.ColumnProduto.MinimumWidth = 6;
+            this.ColumnProduto.Name = "ColumnProduto";
+            this.ColumnProduto.ReadOnly = true;
+            this.ColumnProduto.Width = 125;
+            // 
             // TipoProdutoListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 354);
+            this.ClientSize = new System.Drawing.Size(551, 354);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
@@ -97,5 +121,7 @@
         private Button buttonEditar;
         private Button buttonApagar;
         private Button buttonCadastrar;
+        private DataGridViewTextBoxColumn ColumnID;
+        private DataGridViewTextBoxColumn ColumnProduto;
     }
 }
