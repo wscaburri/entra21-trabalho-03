@@ -28,9 +28,8 @@ namespace entra21_trabalho_03.Services
             SqlCommand comando = conexao.CreateCommand();
 
             comando.CommandText =
-                "INSERT INTO tipo_produto (nome, observacao) Values(@NOME, @OBSERVACAO)";
+                "INSERT INTO tipo_produto (nome) Values(@NOME)";
             comando.Parameters.AddWithValue("@NOME", tipoProduto.Nome);
-            comando.Parameters.AddWithValue("@OBSERVACAO", tipoProduto.Observacao);
 
             comando.ExecuteNonQuery();
 
@@ -43,9 +42,8 @@ namespace entra21_trabalho_03.Services
 
             var comando = conexao.CreateCommand();
             comando.CommandText =
-            "UPDATE tipo_produto SET nome = @NOME, observacao = @OBSERVACAO WHERE id = @ID";
+            "UPDATE tipo_produto SET nome = @NOME WHERE id = @ID";
             comando.Parameters.AddWithValue("@NOME", tipoProduto.Nome);
-            comando.Parameters.AddWithValue("@OBSERVACAO", tipoProduto.Observacao);
             comando.Parameters.AddWithValue("@ID", tipoProduto.Id);
 
             comando.ExecuteNonQuery();
@@ -89,7 +87,7 @@ namespace entra21_trabalho_03.Services
 
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "SELECT id, nome, observacao FROM tipo_produto";
+            comando.CommandText = "SELECT id, nome FROM tipo_produto";
 
             var tabelaEmMemoria = new DataTable();
 
@@ -104,7 +102,6 @@ namespace entra21_trabalho_03.Services
                 var tipoProduto = new TipoProduto1();
                 tipoProduto.Id = Convert.ToInt32(linha["id"].ToString());
                 tipoProduto.Nome = linha["nome"].ToString();
-                tipoProduto.Observacao = linha["observacao"].ToString();
 
                 tipoProdutos.Add(tipoProduto);
             }

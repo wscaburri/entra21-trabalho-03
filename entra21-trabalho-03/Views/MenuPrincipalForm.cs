@@ -1,6 +1,6 @@
 ﻿using entra21_trabalho_03.Views.EstoqueProdutos;
 using entra21_trabalho_03.Views.Farmacias;
-using entra21_trabalho_03.Views.TipoProduto;
+using entra21_trabalho_03.Views.TipoProdutos;
 
 namespace entra21_trabalho_03.Views
 {
@@ -25,7 +25,7 @@ namespace entra21_trabalho_03.Views
 
         private void buttonTipoProduto_Click(object sender, EventArgs e)
         {
-            var tipoProdutoForm = new TipoProdutoCadastroEdicaoForm();
+            var tipoProdutoForm = new TipoProdutoListagemForm();
             tipoProdutoForm.ShowDialog();
         }
     }
