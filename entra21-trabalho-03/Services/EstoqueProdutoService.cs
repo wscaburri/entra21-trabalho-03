@@ -48,7 +48,7 @@ id_tipo_produto = @ID_TIPO_PRODUTO,
 nome = @NOME,
 quantidade_produto = @QUANTIDADE_PRODUTO,
 validade_produto = @VALIDADE_PRODUTO,
-data_entrada_produto_estoque = @DATA_ENTRADA_PRODUTO_ESTOQUE
+data_produto_entrada_estoque = @DATA_PRODUTO_ENTRADA_ESTOQUE
 WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID_FARMACIA", estoqueProduto.Farmacia.Id);
@@ -56,7 +56,7 @@ WHERE id = @ID";
             comando.Parameters.AddWithValue("@NOME", estoqueProduto.Nome);
             comando.Parameters.AddWithValue("@QUANTIDADE_PRODUTO", estoqueProduto.QuantidadeProduto);
             comando.Parameters.AddWithValue("@VALIDADE_PRODUTO", estoqueProduto.ValidadeProduto);
-            comando.Parameters.AddWithValue("@DATA_ENTRADA_PRODUTO_ESTOQUE", estoqueProduto.EntradaProdutoEstoque);
+            comando.Parameters.AddWithValue("@DATA_PRODUTO_ENTRADA_ESTOQUE", estoqueProduto.EntradaProdutoEstoque);
             comando.Parameters.AddWithValue("@ID", estoqueProduto.Id);
 
             comando.ExecuteNonQuery();
@@ -69,7 +69,7 @@ WHERE id = @ID";
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
             comando.CommandText = @"SELECT id, id_farmacia, id_tipo_produto, nome, quantidade_produto,
-validade_produto, data_entrada_produto_estoque FROM estoque_produto
+validade_produto, data_produto_entrada_estoque FROM estoque_produto
 WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID", id);
@@ -90,7 +90,7 @@ WHERE id = @ID";
             estoqueProduto.Nome = registro["nome"].ToString();
             estoqueProduto.QuantidadeProduto = Convert.ToInt32(registro["quantidade_produto"]);
             estoqueProduto.ValidadeProduto = Convert.ToDateTime(registro["validade_produto"]);
-            estoqueProduto.EntradaProdutoEstoque = Convert.ToDateTime(registro["data_entrada_produto_estoque"]);
+            estoqueProduto.EntradaProdutoEstoque = Convert.ToDateTime(registro["data_produto_entrada_estoque"]);
 
             conexao.Close();
 

@@ -72,7 +72,12 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count == 0)
+            EditarDados();
+        }
+
+        private void EditarDados()
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecione um registro!!");
                 return;
@@ -86,6 +91,11 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             estoqueProdutoCadastroEdicaoForm.ShowDialog();
 
             PreencherDataGridViewComProdutos();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditarDados();
         }
     }//TODO: Reafatora a classe EstoqueListagemForm
 }

@@ -42,7 +42,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
             for(int i = 0; i < comboBoxTipoProduto.Items.Count; i++)
             {
-                var tipoProdutoPercorrido = comboBoxTipoProduto.Items[i] as TipoProduto;
+                var tipoProdutoPercorrido = comboBoxTipoProduto.Items[i] as TipoProduto1;
 
                 if(tipoProdutoPercorrido.Id == estoqueProduto.TipoProduto.Id)
                 {
@@ -84,7 +84,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             var farmacia = comboBoxFarmacia.SelectedItem as Farmacia;
-            var tipoProduto = comboBoxTipoProduto.SelectedItem as TipoProduto;
+            var tipoProduto = comboBoxTipoProduto.SelectedItem as TipoProduto1;
             var nome = textBoxNomeProduto.Text.Trim();
             var quantidadeProduto = textBoxQuantidadeProduto.Text.Trim();
             var validadeProduto = dateTimePickerDataValidade.Text;
