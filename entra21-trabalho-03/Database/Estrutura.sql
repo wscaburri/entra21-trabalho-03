@@ -1,7 +1,6 @@
 ﻿CREATE TABLE tipo_produto(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(120),
-	observacao TEXT);
+	nome VARCHAR(120));
 
 CREATE TABLE cliente(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
@@ -12,7 +11,6 @@ CREATE TABLE cliente(
 	endereco VARCHAR(100),
 	numero INTEGER
 );
-
 
 CREATE TABLE farmacia(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),

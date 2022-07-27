@@ -9,6 +9,6 @@
         public DateTime EntradaProdutoEstoque { get; set; }
         public Farmacia Farmacia { get; set; }
         
-        public TipoProduto TipoProduto { get; set; }
+        public TipoProduto1 TipoProduto { get; set; }
     }
 }

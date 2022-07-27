@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonTipoProduto = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.buttonCadastrarFarmacia = new System.Windows.Forms.Button();
             this.buttonCadastroEstoque = new System.Windows.Forms.Button();
@@ -38,45 +38,51 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 33);
+            this.button1.Location = new System.Drawing.Point(16, 44);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 94);
+            this.button1.Size = new System.Drawing.Size(141, 125);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(143, 33);
+            this.button2.Location = new System.Drawing.Point(163, 44);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 94);
+            this.button2.Size = new System.Drawing.Size(145, 125);
             this.button2.TabIndex = 1;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonTipoProduto
             // 
-            this.button3.Location = new System.Drawing.Point(276, 33);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 94);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonTipoProduto.Location = new System.Drawing.Point(315, 44);
+            this.buttonTipoProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonTipoProduto.Name = "buttonTipoProduto";
+            this.buttonTipoProduto.Size = new System.Drawing.Size(141, 125);
+            this.buttonTipoProduto.TabIndex = 2;
+            this.buttonTipoProduto.Text = "Tipo de Produto";
+            this.buttonTipoProduto.UseVisualStyleBackColor = true;
+            this.buttonTipoProduto.Click += new System.EventHandler(this.buttonTipoProduto_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(14, 150);
+            this.button4.Location = new System.Drawing.Point(16, 200);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 85);
+            this.button4.Size = new System.Drawing.Size(141, 113);
             this.button4.TabIndex = 3;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // buttonCadastrarFarmacia
             // 
-            this.buttonCadastrarFarmacia.Location = new System.Drawing.Point(143, 150);
+            this.buttonCadastrarFarmacia.Location = new System.Drawing.Point(163, 200);
+            this.buttonCadastrarFarmacia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCadastrarFarmacia.Name = "buttonCadastrarFarmacia";
-            this.buttonCadastrarFarmacia.Size = new System.Drawing.Size(127, 85);
+            this.buttonCadastrarFarmacia.Size = new System.Drawing.Size(145, 113);
             this.buttonCadastrarFarmacia.TabIndex = 4;
             this.buttonCadastrarFarmacia.Text = "Cadastro de Farmacia";
             this.buttonCadastrarFarmacia.UseVisualStyleBackColor = true;
@@ -84,9 +90,10 @@
             // 
             // buttonCadastroEstoque
             // 
-            this.buttonCadastroEstoque.Location = new System.Drawing.Point(276, 150);
+            this.buttonCadastroEstoque.Location = new System.Drawing.Point(315, 200);
+            this.buttonCadastroEstoque.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCadastroEstoque.Name = "buttonCadastroEstoque";
-            this.buttonCadastroEstoque.Size = new System.Drawing.Size(123, 85);
+            this.buttonCadastroEstoque.Size = new System.Drawing.Size(141, 113);
             this.buttonCadastroEstoque.TabIndex = 5;
             this.buttonCadastroEstoque.Text = "Cadastro de Estoque";
             this.buttonCadastroEstoque.UseVisualStyleBackColor = true;
@@ -94,15 +101,16 @@
             // 
             // MenuPrincipalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 253);
+            this.ClientSize = new System.Drawing.Size(461, 337);
             this.Controls.Add(this.buttonCadastroEstoque);
             this.Controls.Add(this.buttonCadastrarFarmacia);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonTipoProduto);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MenuPrincipalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
@@ -114,7 +122,7 @@
 
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button buttonTipoProduto;
         private Button button4;
         private Button buttonCadastrarFarmacia;
         private Button buttonCadastroEstoque;

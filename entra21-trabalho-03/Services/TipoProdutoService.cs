@@ -21,7 +21,7 @@ namespace entra21_trabalho_03.Services
             comando.Connection.Close();
         }
 
-        public void Cadastrar(TipoProduto tipoProduto)
+        public void Cadastrar(TipoProduto1 tipoProduto)
         {
             var conexao = new Conexao().Conectar();
 
@@ -37,7 +37,7 @@ namespace entra21_trabalho_03.Services
             conexao.Close();
         }
 
-        public void Editar(TipoProduto tipoProduto)
+        public void Editar(TipoProduto1 tipoProduto)
         {
             var conexao = new Conexao().Conectar();
 
@@ -53,7 +53,7 @@ namespace entra21_trabalho_03.Services
             comando.Connection.Close();
         }
 
-        public TipoProduto ObterPorId(int id)
+        public TipoProduto1 ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();
 
@@ -71,7 +71,7 @@ namespace entra21_trabalho_03.Services
 
             var primeiroRegistro = tabelaEmMemoria.Rows[0];
 
-            var tipoProduto = new TipoProduto();
+            var tipoProduto = new TipoProduto1();
 
             tipoProduto.Id = Convert.ToInt32(primeiroRegistro["id"]);
 
@@ -82,7 +82,7 @@ namespace entra21_trabalho_03.Services
             return tipoProduto;
         }
         
-        public List<TipoProduto> ObterTodos()
+        public List<TipoProduto1> ObterTodos()
         {
 
             var conexao = new Conexao().Conectar();
@@ -95,13 +95,13 @@ namespace entra21_trabalho_03.Services
 
             tabelaEmMemoria.Load(comando.ExecuteReader());
 
-            var tipoProdutos = new List<TipoProduto>();
+            var tipoProdutos = new List<TipoProduto1>();
 
             for (int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
             {
                 var linha = tabelaEmMemoria.Rows[i];
 
-                var tipoProduto = new TipoProduto();
+                var tipoProduto = new TipoProduto1();
                 tipoProduto.Id = Convert.ToInt32(linha["id"].ToString());
                 tipoProduto.Nome = linha["nome"].ToString();
                 tipoProduto.Observacao = linha["observacao"].ToString();
