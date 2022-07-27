@@ -12,7 +12,7 @@ namespace entra21_trabalho_03.Services
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "DELETE FROM clientes WHERE id = @ID";
+            comando.CommandText = "DELETE FROM cliente WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             comando.ExecuteNonQuery();
@@ -25,7 +25,7 @@ namespace entra21_trabalho_03.Services
             var conexao = new Conexao().Conectar();
             SqlCommand comando = conexao.CreateCommand();
 
-            comando.CommandText = @"INSERT INTO clientes (nome, cpf, data_nascimento, cep, endereco, numero)
+            comando.CommandText = @"INSERT INTO cliente (nome, cpf, data_nascimento, cep, endereco, numero)
 VALUES (@NOME, @CPF, @DATA_NASCIMENTO, @CEP, @ENDERECO, @NUMERO)";
             comando.Parameters.AddWithValue("@NOME", cliente.NomeCompleto);
             comando.Parameters.AddWithValue("@CPF", cliente.Cpf);
@@ -44,7 +44,7 @@ VALUES (@NOME, @CPF, @DATA_NASCIMENTO, @CEP, @ENDERECO, @NUMERO)";
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = @"UPDATE clientes SET
+            comando.CommandText = @"UPDATE cliente SET
 nome = @NOME, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, cep = @CEP, endereco = @ENDERECO, numero = @NUMERO WHERE id = @ID";
             comando.Parameters.AddWithValue("@NOME", cliente.NomeCompleto);
             comando.Parameters.AddWithValue("@CPF", cliente.Cpf);
@@ -64,7 +64,7 @@ nome = @NOME, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, cep = @CEP, endere
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "SELECT id, nome, cpf, data_nascimento, cep, endereco, numero FROM cidades WHERE id = @ID";
+            comando.CommandText = "SELECT id, nome, cpf, data_nascimento, cep, endereco, numero FROM cliente WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             var tabelaEmMemoria = new DataTable();
@@ -95,7 +95,7 @@ nome = @NOME, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, cep = @CEP, endere
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
 
-            comando.CommandText = "SELECT id, nome, cpf, data_nascimento, cep, endereco, numero FROM clientes";
+            comando.CommandText = "SELECT id, nome, cpf, data_nascimento, cep, endereco, numero FROM cliente";
 
             var tabelaEmMemoria = new DataTable();
             tabelaEmMemoria.Load(comando.ExecuteReader());
@@ -113,7 +113,7 @@ nome = @NOME, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, cep = @CEP, endere
                 cliente.DataNascimento = Convert.ToDateTime(registro["data_nascimento"].ToString());
                 cliente.Cep = registro["cep"].ToString();
                 cliente.Endereco = registro["endereco"].ToString();
-                cliente.Numero = Convert.ToInt32(registro["numero"].ToString);
+                cliente.Numero = Convert.ToInt32(registro["numero"].ToString());
 
                 clientes.Add(cliente);
             }
