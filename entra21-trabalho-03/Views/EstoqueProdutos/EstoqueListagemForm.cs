@@ -1,4 +1,5 @@
 ﻿using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.EstoqueProdutos
 {
@@ -49,14 +50,14 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
         {
             if(dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um registro");
+                CustomMessageBox.ShowWarning("Selecione um registro");
                 return;
             }
 
             var respostaUsuario = MessageBox.Show("Deseja realmente apagar esse registro?", "AVISO", MessageBoxButtons.YesNo);
             if(respostaUsuario != DialogResult.Yes)
             {
-                MessageBox.Show("O registro nao foi apagado!");
+                CustomMessageBox.ShowError("O registro nao foi apagado!");
                 return;
             }
 
@@ -67,7 +68,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
             PreencherDataGridViewComProdutos();
 
-            MessageBox.Show("Registro removido com sucesso!!");
+            CustomMessageBox.ShowSuccess("Registro removido com sucesso!!");
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um registro!!");
+                CustomMessageBox.ShowWarning("Selecione um registro!!");
                 return;
             }
             var linhaSelecionada = dataGridView1.SelectedRows[0];

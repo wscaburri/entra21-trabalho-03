@@ -1,4 +1,5 @@
 ﻿using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 using System.Data.SqlClient;
 
 namespace entra21_trabalho_03.Views.Farmacias
@@ -22,9 +23,14 @@ namespace entra21_trabalho_03.Views.Farmacias
 
         private void EditarDados()
         {
+            if(dataGridView1.Rows.Count == 0)
+            {
+                CustomMessageBox.ShowWarning("Nenhuma farmacia cadastrada!");
+                return;
+            }
             if(dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Nunhuma farmacia selecionado");
+                CustomMessageBox.ShowWarning("Nunhuma farmacia selecionado!");
 
                 return;
             }
@@ -68,14 +74,14 @@ namespace entra21_trabalho_03.Views.Farmacias
         {
             if(dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("Nenhuma farmacia cadastrada!");
+                CustomMessageBox.ShowWarning("Nenhuma farmacia cadastrada!");
 
                 return;
             }
 
             if(dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Nenhuma farmacia selecionada!");
+                CustomMessageBox.ShowWarning("Nenhuma farmacia selecionada!");
 
                 return;
             }
@@ -93,13 +99,13 @@ namespace entra21_trabalho_03.Views.Farmacias
             {
                 _farmaciaService.Apagar(idRegistroSelecionado);
 
-                MessageBox.Show("Farmacia apagada com sucesso!!");
+                CustomMessageBox.ShowSuccess("Farmacia apagada com sucesso!!");
 
                 PreencherDataGridView();
             }
-            catch
+            catch(SqlException)
             {
-                MessageBox.Show("Não foi possivel apgar este registro!!");
+                CustomMessageBox.ShowError("Não foi possivel apgar este registro!!");
             }
         }
 

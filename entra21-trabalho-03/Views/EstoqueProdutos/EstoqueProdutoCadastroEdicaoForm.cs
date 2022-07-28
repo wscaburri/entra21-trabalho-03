@@ -1,5 +1,6 @@
 ﻿using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.EstoqueProdutos
 {
@@ -29,22 +30,22 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
         {
             _idParaAlterar = estoqueProduto.Id;
 
-            for(int i = 0; i < comboBoxFarmacia.Items.Count; i++)
+            for (int i = 0; i < comboBoxFarmacia.Items.Count; i++)
             {
                 var farmaciaPercorrida = comboBoxFarmacia.Items[i] as Farmacia;
 
-                if(farmaciaPercorrida.Id == estoqueProduto.Farmacia.Id)
+                if (farmaciaPercorrida.Id == estoqueProduto.Farmacia.Id)
                 {
                     comboBoxFarmacia.SelectedItem = farmaciaPercorrida;
                     break;
                 }
             }
 
-            for(int i = 0; i < comboBoxTipoProduto.Items.Count; i++)
+            for (int i = 0; i < comboBoxTipoProduto.Items.Count; i++)
             {
                 var tipoProdutoPercorrido = comboBoxTipoProduto.Items[i] as TipoProduto1;
 
-                if(tipoProdutoPercorrido.Id == estoqueProduto.TipoProduto.Id)
+                if (tipoProdutoPercorrido.Id == estoqueProduto.TipoProduto.Id)
                 {
                     comboBoxTipoProduto.SelectedItem = tipoProdutoPercorrido;
                     break;
@@ -62,7 +63,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             var farmaciaService = new FarmaciaService();
             var farmacias = farmaciaService.ObterTodas();
 
-            for(int i = 0; i < farmacias.Count; i++)
+            for (int i = 0; i < farmacias.Count; i++)
             {
                 var farmacia = farmacias[i];
                 comboBoxFarmacia.Items.Add(farmacia);
@@ -74,7 +75,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             var tipoProdutoService = new TipoProdutoService();
             var tiposProdutos = tipoProdutoService.ObterTodos();
 
-            for(int i = 0; i < tiposProdutos.Count; i++)
+            for (int i = 0; i < tiposProdutos.Count; i++)
             {
                 var tipoProduto = tiposProdutos[i];
                 comboBoxTipoProduto.Items.Add(tipoProduto);
@@ -91,6 +92,11 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             var dataEntradaEstoque = dateTimePickerDataEntradaEstoque.Text;
             var estoqueProduto = new EstoqueProduto();
 
+            var validarDados = ValidarDadosEstoque();
+
+            if (validarDados == false)
+                return;
+
             estoqueProduto.Farmacia = farmacia;
             estoqueProduto.TipoProduto = tipoProduto;
             estoqueProduto.Nome = nome;
@@ -104,8 +110,8 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             {
                 estoqueProdutoService.Cadastrar(estoqueProduto);
 
-                MessageBox.Show("Produto cadastrado com sucesso!");
-                
+                CustomMessageBox.ShowSuccess("Produto cadastrado com sucesso!");
+
                 Close();
             }
             else
@@ -113,10 +119,57 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
                 estoqueProduto.Id = _idParaAlterar;
                 estoqueProdutoService.Editar(estoqueProduto);
 
-                MessageBox.Show("Produto alterado com sucesso!");
+                CustomMessageBox.ShowSuccess("Produto alterado com sucesso!");
 
                 Close();
             }
         }
+
+        private bool ValidarDadosEstoque()
+        {
+            int quantidadeProdutos;
+
+            if (comboBoxFarmacia.SelectedIndex == -1)
+            {
+                CustomMessageBox.ShowWarning("Selecione alguma farmacia!");
+                return false;
+            }
+            if (comboBoxTipoProduto.SelectedIndex == -1)
+            {
+                CustomMessageBox.ShowWarning("Selecione o tipo do produto!");
+                return false;
+            }
+            if ((textBoxNomeProduto.Text.Length < 3) || (textBoxNomeProduto.Text.Length > 70))
+            {
+                CustomMessageBox.ShowWarning("O nome do produto deve ser um nome valido!");
+                return false;
+            }
+            try
+            {
+                quantidadeProdutos = Convert.ToInt32(textBoxQuantidadeProduto.Text);
+                if (quantidadeProdutos < 0)
+                    return false;
+            }
+            catch (Exception)
+            {
+                CustomMessageBox.ShowWarning("A quantidade de produtos não pode ser inferior a zero ou superior a mil!");
+
+                textBoxQuantidadeProduto.Focus();
+
+                return false;
+            }
+            if (dateTimePickerDataValidade.Value.Date <= DateTime.Today.Date)
+            {
+                CustomMessageBox.ShowWarning("A data de validade não pode ser o dia atual ou menor que o mesmo!");
+                return false;
+            }
+            if (dateTimePickerDataEntradaEstoque.Value.Date > DateTime.Today.Date)
+            {
+                CustomMessageBox.ShowWarning("A data de entrada do produto não pode ser superior ao dia atual!");
+                return false;
+            }
+
+            return true;
+        }
     }//TODO: Refatora a classe EstoqueProdutoCadastroEdicaoForm 
-}//TODO: Atualizar botao Salvar 
+}//Olhar try catch quantidade Produtos

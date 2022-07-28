@@ -1,5 +1,6 @@
 ﻿using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 using System.Data.SqlClient;
 
 namespace entra21_trabalho_03.Views.Farmacias
@@ -43,7 +44,7 @@ namespace entra21_trabalho_03.Views.Farmacias
 
             _farmaciaService.Editar(farmacia);
 
-            MessageBox.Show("Farmacia alterada com sucesso!!");
+            CustomMessageBox.ShowSuccess("Farmacia alterada com sucesso!!");
 
             Close();
         }
@@ -56,23 +57,26 @@ namespace entra21_trabalho_03.Views.Farmacias
             var bairro = textBoxBairro.Text.Trim();
             var logradouro = textBoxLogradouro.Text.Trim();
             int numero;
+
+            var validarDadosFarmacia = ValidarDadosFarmacia();
+
+            if (validarDadosFarmacia == false)
+                return;
+
             try
             {
                 numero = Convert.ToInt32(textBoxNumero.Text.Trim());
+                if (numero < 0)
+                    return;
             }
             catch (Exception)
             {
-                MessageBox.Show("O campo numero só pode conter numeros inteiros!!");
+                CustomMessageBox.ShowError("O campo numero só pode conter numeros inteiros!!");
 
                 textBoxNumero.Focus();
 
                 return;
             }
-
-            var editarDados = EditarDados();
-
-            if (editarDados == false)
-                return;
 
             var farmacia = new Farmacia();
             farmacia.Nome = nome;
@@ -89,34 +93,33 @@ namespace entra21_trabalho_03.Views.Farmacias
                 EditarFarmacia(farmacia);
         }
 
-        private bool EditarDados()
+        private bool ValidarDadosFarmacia()
         {
             if ((textBoxNomeRedeFarmacia.Text.Length < 7) || (textBoxNomeRedeFarmacia.Text.Length > 60))
             {
-                MessageBox.Show("O nome da farmácia deve conter no minimo 7 caracteres ou no máximo 60");
+                CustomMessageBox.ShowError("O nome da farmácia deve conter no minimo 7 caracteres ou no máximo 60");
                 return false;
             }
             if (maskedTextBoxCnpj.Text.Length != 18)
             {
-                MessageBox.Show("O cnpj deve conter todos os seus 14 numeros!");
+                CustomMessageBox.ShowError("O cnpj deve conter todos os seus 14 numeros!");
                 return false;
             }
             if ((textBoxCidade.Text.Length < 5) || (textBoxCidade.Text.Length > 100))
             {
-                MessageBox.Show("O campo cidade deve conter uma cidade valida!");
+                CustomMessageBox.ShowError("O campo cidade deve conter uma cidade valida!");
                 return false;
             }
             if ((textBoxBairro.Text.Length < 5) || (textBoxBairro.Text.Length > 100))
             {
-                MessageBox.Show("O campo bairro deve conter um bairro valido!");
+                CustomMessageBox.ShowError("O campo bairro deve conter um bairro valido!");
                 return false;
             }
             if ((textBoxLogradouro.Text.Length < 5) || (textBoxLogradouro.Text.Length > 100))
             {
-                MessageBox.Show("O campo logradouro deve conter um logradouro valido!");
+                CustomMessageBox.ShowError("O campo logradouro deve conter um logradouro valido!");
                 return false;
             }
-
             return true;
         }
 
@@ -124,7 +127,7 @@ namespace entra21_trabalho_03.Views.Farmacias
         {
             _farmaciaService.Cadastrar(farmacia);
 
-            MessageBox.Show("Farmacia cadastrada com sucesso!!");
+            CustomMessageBox.ShowSuccess("Farmacia cadastrada com sucesso!!");
 
             Close();
         }

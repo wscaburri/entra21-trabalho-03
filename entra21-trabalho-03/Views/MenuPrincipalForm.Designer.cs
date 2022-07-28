@@ -40,7 +40,7 @@
             // 
             this.buttonCadastroCliente.Location = new System.Drawing.Point(14, 33);
             this.buttonCadastroCliente.Name = "buttonCadastroCliente";
-            this.buttonCadastroCliente.Size = new System.Drawing.Size(123, 94);
+            this.buttonCadastroCliente.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroCliente.TabIndex = 0;
             this.buttonCadastroCliente.Text = "Cadastro de Cliente";
             this.buttonCadastroCliente.UseVisualStyleBackColor = true;
@@ -48,18 +48,18 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(143, 33);
+            this.button2.Location = new System.Drawing.Point(197, 33);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 94);
+            this.button2.Size = new System.Drawing.Size(161, 113);
             this.button2.TabIndex = 1;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonTipoProduto
             // 
-            this.buttonTipoProduto.Location = new System.Drawing.Point(276, 33);
+            this.buttonTipoProduto.Location = new System.Drawing.Point(377, 33);
             this.buttonTipoProduto.Name = "buttonTipoProduto";
-            this.buttonTipoProduto.Size = new System.Drawing.Size(123, 94);
+            this.buttonTipoProduto.Size = new System.Drawing.Size(161, 113);
             this.buttonTipoProduto.TabIndex = 2;
             this.buttonTipoProduto.Text = "Tipo de Produto";
             this.buttonTipoProduto.UseVisualStyleBackColor = true;
@@ -67,30 +67,36 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(14, 150);
+            this.button4.Location = new System.Drawing.Point(14, 178);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 85);
+            this.button4.Size = new System.Drawing.Size(161, 113);
             this.button4.TabIndex = 3;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // buttonCadastrarFarmacia
             // 
-            this.buttonCadastrarFarmacia.Location = new System.Drawing.Point(143, 150);
+            this.buttonCadastrarFarmacia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCadastrarFarmacia.Image = global::entra21_trabalho_03.Properties.Resources.pharmacy;
+            this.buttonCadastrarFarmacia.Location = new System.Drawing.Point(197, 178);
             this.buttonCadastrarFarmacia.Name = "buttonCadastrarFarmacia";
-            this.buttonCadastrarFarmacia.Size = new System.Drawing.Size(127, 85);
+            this.buttonCadastrarFarmacia.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastrarFarmacia.TabIndex = 4;
             this.buttonCadastrarFarmacia.Text = "Cadastro de Farmacia";
+            this.buttonCadastrarFarmacia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCadastrarFarmacia.UseVisualStyleBackColor = true;
             this.buttonCadastrarFarmacia.Click += new System.EventHandler(this.buttonCadastrarFarmacia_Click);
             // 
             // buttonCadastroEstoque
             // 
-            this.buttonCadastroEstoque.Location = new System.Drawing.Point(276, 150);
+            this.buttonCadastroEstoque.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCadastroEstoque.Image = global::entra21_trabalho_03.Properties.Resources.inventory;
+            this.buttonCadastroEstoque.Location = new System.Drawing.Point(377, 178);
             this.buttonCadastroEstoque.Name = "buttonCadastroEstoque";
-            this.buttonCadastroEstoque.Size = new System.Drawing.Size(123, 85);
+            this.buttonCadastroEstoque.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroEstoque.TabIndex = 5;
             this.buttonCadastroEstoque.Text = "Cadastro de Estoque";
+            this.buttonCadastroEstoque.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCadastroEstoque.UseVisualStyleBackColor = true;
             this.buttonCadastroEstoque.Click += new System.EventHandler(this.buttonCadastroEstoque_Click);
             // 
@@ -98,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 253);
+            this.ClientSize = new System.Drawing.Size(543, 300);
             this.Controls.Add(this.buttonCadastroEstoque);
             this.Controls.Add(this.buttonCadastrarFarmacia);
             this.Controls.Add(this.button4);
