@@ -32,7 +32,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
             for (int i = 0; i < comboBoxFarmacia.Items.Count; i++)
             {
-                var farmaciaPercorrida = comboBoxFarmacia.Items[i] as Farmacia;
+                var farmaciaPercorrida = comboBoxFarmacia.Items[i] as Distribuidora;
 
                 if (farmaciaPercorrida.Id == estoqueProduto.Farmacia.Id)
                 {
@@ -60,7 +60,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
         public void PreencherComboBoxComFarmacia()
         {
-            var farmaciaService = new FarmaciaService();
+            var farmaciaService = new DistribuidoraService();
             var farmacias = farmaciaService.ObterTodas();
 
             for (int i = 0; i < farmacias.Count; i++)
@@ -84,7 +84,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            var farmacia = comboBoxFarmacia.SelectedItem as Farmacia;
+            var farmacia = comboBoxFarmacia.SelectedItem as Distribuidora;
             var tipoProduto = comboBoxTipoProduto.SelectedItem as TipoProduto1;
             var nome = textBoxNomeProduto.Text.Trim();
             var quantidadeProduto = textBoxQuantidadeProduto.Text.Trim();

@@ -1,6 +1,6 @@
 ﻿namespace entra21_trabalho_03.Views.Farmacias
 {
-    partial class FarmaciaCadastroEdicaoForm
+    partial class DistribuidoraCadastroEdicaoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -161,7 +161,7 @@
             this.textBoxNumero.Size = new System.Drawing.Size(237, 23);
             this.textBoxNumero.TabIndex = 14;
             // 
-            // FarmaciaCadastroEdicaoForm
+            // DistribuidoraCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -180,9 +180,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
-            this.Name = "FarmaciaCadastroEdicaoForm";
+            this.Name = "DistribuidoraCadastroEdicaoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro/Edição de Farmacias";
+            this.Text = "Cadastro/Edição de Distribuidora";
             this.ResumeLayout(false);
             this.PerformLayout();
 

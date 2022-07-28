@@ -1,6 +1,6 @@
 ﻿namespace entra21_trabalho_03.Views.Farmacias
 {
-    partial class FarmaciaListagemForm
+    partial class DistribuidoraListagemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -136,7 +136,7 @@
             this.buttonApagar.UseVisualStyleBackColor = true;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
-            // FarmaciaListagemForm
+            // DistribuidoraListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,9 +145,9 @@
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "FarmaciaListagemForm";
+            this.Name = "DistribuidoraListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de Farmacias";
+            this.Text = "Lista de Distribuidora";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

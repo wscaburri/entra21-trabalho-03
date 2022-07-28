@@ -5,20 +5,20 @@ using System.Data.SqlClient;
 
 namespace entra21_trabalho_03.Views.Farmacias
 {
-    public partial class FarmaciaCadastroEdicaoForm : Form
+    public partial class DistribuidoraCadastroEdicaoForm : Form
     {
         private readonly int _idParaAlterar;
-        private readonly FarmaciaService _farmaciaService;
+        private readonly DistribuidoraService _farmaciaService;
 
         private const int modoEdicao = -1;
 
-        public FarmaciaCadastroEdicaoForm()
+        public DistribuidoraCadastroEdicaoForm()
         {
             InitializeComponent();
 
             _idParaAlterar = modoEdicao;
 
-            _farmaciaService = new FarmaciaService();
+            _farmaciaService = new DistribuidoraService();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace entra21_trabalho_03.Views.Farmacias
             Close();
         }
 
-        public FarmaciaCadastroEdicaoForm(Farmacia farmacia) : this()
+        public DistribuidoraCadastroEdicaoForm(Distribuidora farmacia) : this()
         {
             _idParaAlterar = farmacia.Id;
 
@@ -38,7 +38,7 @@ namespace entra21_trabalho_03.Views.Farmacias
             textBoxNumero.Text = farmacia.Numero.ToString();
         }
 
-        private void EditarFarmacia(Farmacia farmacia)
+        private void EditarFarmacia(Distribuidora farmacia)
         {
             farmacia.Id = _idParaAlterar;
 
@@ -78,7 +78,7 @@ namespace entra21_trabalho_03.Views.Farmacias
                 return;
             }
 
-            var farmacia = new Farmacia();
+            var farmacia = new Distribuidora();
             farmacia.Nome = nome;
             farmacia.Cnpj = cnpj;
             farmacia.Cidade = cidade;
@@ -123,7 +123,7 @@ namespace entra21_trabalho_03.Views.Farmacias
             return true;
         }
 
-        private void CadastrarFarmacia(Farmacia farmacia)
+        private void CadastrarFarmacia(Distribuidora farmacia)
         {
             _farmaciaService.Cadastrar(farmacia);
 

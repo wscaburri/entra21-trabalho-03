@@ -48,11 +48,11 @@
             // 
             this.labelContent.AutoSize = true;
             this.labelContent.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelContent.Location = new System.Drawing.Point(142, 67);
+            this.labelContent.Location = new System.Drawing.Point(142, 64);
             this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(100, 32);
+            this.labelContent.Size = new System.Drawing.Size(268, 32);
             this.labelContent.TabIndex = 1;
-            this.labelContent.Text = "Content";
+            this.labelContent.Text = "Content                        \r\n";
             this.labelContent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonOk

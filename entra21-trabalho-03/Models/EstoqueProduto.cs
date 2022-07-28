@@ -7,7 +7,7 @@
         public int QuantidadeProduto { get; set; }
         public DateTime ValidadeProduto { get; set; }
         public DateTime EntradaProdutoEstoque { get; set; }
-        public Farmacia Farmacia { get; set; }
+        public Distribuidora Farmacia { get; set; }
         
         public TipoProduto1 TipoProduto { get; set; }
     }

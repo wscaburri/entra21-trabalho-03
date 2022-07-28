@@ -14,7 +14,7 @@ namespace entra21_trabalho_03.Views
 
         private void buttonCadastrarFarmacia_Click(object sender, EventArgs e)
         {
-            var farmaciaForm = new FarmaciaListagemForm();
+            var farmaciaForm = new DistribuidoraListagemForm();
             farmaciaForm.ShowDialog();
         }
 

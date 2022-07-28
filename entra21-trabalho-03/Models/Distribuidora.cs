@@ -1,6 +1,6 @@
 ﻿namespace entra21_trabalho_03.Models
 {
-    public class Farmacia
+    public class Distribuidora
     {
         public int Id { get; set; }
         public string Nome { get; set; }

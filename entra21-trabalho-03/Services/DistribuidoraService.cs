@@ -4,7 +4,7 @@ using System.Data;
 
 namespace entra21_trabalho_03.Services
 {
-    internal class FarmaciaService : IFarmaciaService
+    internal class DistribuidoraService : IDistribuidoraService
     {
         public void Apagar(int id)
         {
@@ -15,7 +15,7 @@ namespace entra21_trabalho_03.Services
             comando.ExecuteNonQuery();
             comando.Connection.Close();
         }
-        public void Cadastrar(Farmacia farmacia)
+        public void Cadastrar(Distribuidora farmacia)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -34,7 +34,7 @@ VALUES(
 
             comando.Connection.Close();
         }
-        public void Editar(Farmacia farmacia)
+        public void Editar(Distribuidora farmacia)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -54,7 +54,7 @@ VALUES(
 
             comando.Connection.Close();
         }
-        public Farmacia ObterPorId(int id)
+        public Distribuidora ObterPorId(int id)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -72,7 +72,7 @@ WHERE id = @ID";
 
             var registro = tabelaEmMemoria.Rows[0];
 
-            var farmacia = new Farmacia();
+            var farmacia = new Distribuidora();
             farmacia.Id = Convert.ToInt32(registro["id"]);
             farmacia.Nome = registro["nome"].ToString();
             farmacia.Cnpj = registro["cnpj"].ToString();
@@ -85,7 +85,7 @@ WHERE id = @ID";
 
             return farmacia;
         }
-        public List<Farmacia> ObterTodas()
+        public List<Distribuidora> ObterTodas()
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
@@ -96,13 +96,13 @@ WHERE id = @ID";
 
             tabelaEmMemoria.Load(comando.ExecuteReader());
 
-            var farmacias = new List<Farmacia>();
+            var farmacias = new List<Distribuidora>();
 
             for(int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
             {
                 var registro = tabelaEmMemoria.Rows[i];
 
-                var farmacia = new Farmacia();
+                var farmacia = new Distribuidora();
                 farmacia.Id = Convert.ToInt32(registro["id"].ToString());
                 farmacia.Nome = registro["nome"].ToString();
                 farmacia.Cnpj = registro["cnpj"].ToString();

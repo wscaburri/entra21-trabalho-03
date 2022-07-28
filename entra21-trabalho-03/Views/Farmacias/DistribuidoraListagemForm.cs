@@ -4,14 +4,14 @@ using System.Data.SqlClient;
 
 namespace entra21_trabalho_03.Views.Farmacias
 {
-    public partial class FarmaciaListagemForm : Form
+    public partial class DistribuidoraListagemForm : Form
     {
-        private readonly FarmaciaService _farmaciaService;
-        public FarmaciaListagemForm()
+        private readonly DistribuidoraService _farmaciaService;
+        public DistribuidoraListagemForm()
         {
             InitializeComponent();
 
-            _farmaciaService = new FarmaciaService();
+            _farmaciaService = new DistribuidoraService();
 
             PreencherDataGridView();
         }
@@ -41,7 +41,7 @@ namespace entra21_trabalho_03.Views.Farmacias
 
                 var farmacia = _farmaciaService.ObterPorId(id);
 
-                var farmaciaForm = new FarmaciaCadastroEdicaoForm(farmacia);
+                var farmaciaForm = new DistribuidoraCadastroEdicaoForm(farmacia);
                 farmaciaForm.ShowDialog();
 
                 PreencherDataGridView();
@@ -111,7 +111,7 @@ namespace entra21_trabalho_03.Views.Farmacias
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            var farmaciaForm = new FarmaciaCadastroEdicaoForm();
+            var farmaciaForm = new DistribuidoraCadastroEdicaoForm();
 
             farmaciaForm.ShowDialog();
 
