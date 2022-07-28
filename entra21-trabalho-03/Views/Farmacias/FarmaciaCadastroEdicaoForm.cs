@@ -69,26 +69,55 @@ namespace entra21_trabalho_03.Views.Farmacias
                 return;
             }
 
-            try
-            {
-                var farmacia = new Farmacia();
-                farmacia.Nome = nome;
-                farmacia.Cnpj = cnpj;
-                farmacia.Cidade = cidade;
-                farmacia.Bairro = bairro;
-                farmacia.Logradouro = logradouro;
-                farmacia.Numero = numero;
+            var editarDados = EditarDados();
 
-                if (_idParaAlterar == modoEdicao)
-                    CadastrarFarmacia(farmacia);
-                else
-                    EditarFarmacia(farmacia);
-            }
-            catch (SqlException)
+            if (editarDados == false)
+                return;
+
+            var farmacia = new Farmacia();
+            farmacia.Nome = nome;
+            farmacia.Cnpj = cnpj;
+            farmacia.Cidade = cidade;
+            farmacia.Bairro = bairro;
+            farmacia.Logradouro = logradouro;
+            farmacia.Numero = numero;
+
+
+            if (_idParaAlterar == modoEdicao)
+                CadastrarFarmacia(farmacia);
+            else
+                EditarFarmacia(farmacia);
+        }
+
+        private bool EditarDados()
+        {
+            if ((textBoxNomeRedeFarmacia.Text.Length < 7) || (textBoxNomeRedeFarmacia.Text.Length > 60))
             {
-                MessageBox.Show("Registro não foi salvo com sucesso!!");
+                MessageBox.Show("O nome da farmácia deve conter no minimo 7 caracteres ou no máximo 60");
+                return false;
+            }
+            if (maskedTextBoxCnpj.Text.Length != 18)
+            {
+                MessageBox.Show("O cnpj deve conter todos os seus 14 numeros!");
+                return false;
+            }
+            if ((textBoxCidade.Text.Length < 5) || (textBoxCidade.Text.Length > 100))
+            {
+                MessageBox.Show("O campo cidade deve conter uma cidade valida!");
+                return false;
+            }
+            if ((textBoxBairro.Text.Length < 5) || (textBoxBairro.Text.Length > 100))
+            {
+                MessageBox.Show("O campo bairro deve conter um bairro valido!");
+                return false;
+            }
+            if ((textBoxLogradouro.Text.Length < 5) || (textBoxLogradouro.Text.Length > 100))
+            {
+                MessageBox.Show("O campo logradouro deve conter um logradouro valido!");
+                return false;
             }
 
+            return true;
         }
 
         private void CadastrarFarmacia(Farmacia farmacia)

@@ -26,7 +26,7 @@ CREATE TABLE cliente(
 CREATE TABLE farmacia(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
-	cnpj VARCHAR(14),
+	cnpj VARCHAR(18),
 	cidade VARCHAR(100),
 	bairro VARCHAR(50),
 	logradouro VARCHAR(100),

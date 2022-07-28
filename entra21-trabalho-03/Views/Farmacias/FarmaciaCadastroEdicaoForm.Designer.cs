@@ -121,7 +121,7 @@
             // maskedTextBoxCnpj
             // 
             this.maskedTextBoxCnpj.Location = new System.Drawing.Point(12, 133);
-            this.maskedTextBoxCnpj.Mask = "99999999999999";
+            this.maskedTextBoxCnpj.Mask = "99.999.999.9999-99";
             this.maskedTextBoxCnpj.Name = "maskedTextBoxCnpj";
             this.maskedTextBoxCnpj.Size = new System.Drawing.Size(237, 23);
             this.maskedTextBoxCnpj.TabIndex = 9;
