@@ -46,18 +46,18 @@
             // 
             // labelContent
             // 
-            this.labelContent.AutoSize = true;
             this.labelContent.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelContent.Location = new System.Drawing.Point(142, 64);
+            this.labelContent.Location = new System.Drawing.Point(142, 42);
             this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(268, 32);
-            this.labelContent.TabIndex = 1;
-            this.labelContent.Text = "Content                        \r\n";
+            this.labelContent.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.labelContent.Size = new System.Drawing.Size(461, 100);
+            this.labelContent.TabIndex = 0;
+            this.labelContent.Text = "Content";
             this.labelContent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(609, 188);
+            this.buttonOk.Location = new System.Drawing.Point(482, 188);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(179, 68);
             this.buttonOk.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 268);
+            this.ClientSize = new System.Drawing.Size(669, 261);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelContent);
             this.Controls.Add(this.pictureBoxContent);
@@ -78,7 +78,6 @@
             this.Text = "CustomMessageBox";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContent)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
