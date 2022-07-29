@@ -116,6 +116,5 @@ INNER JOIN tipos_produto AS tp ON(p.id_tipo_produto = tp.id)";
             }
             return produtos;
         }
-
     }
 }

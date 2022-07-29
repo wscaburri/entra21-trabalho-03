@@ -1,6 +1,7 @@
 ﻿using entra21_trabalho_03.Views.Clientes;
 using entra21_trabalho_03.Views.EstoqueProdutos;
 using entra21_trabalho_03.Views.Farmacias;
+using entra21_trabalho_03.Views.Produtos;
 using entra21_trabalho_03.Views.TipoProdutos;
 
 namespace entra21_trabalho_03.Views
@@ -34,6 +35,12 @@ namespace entra21_trabalho_03.Views
         {
             var clienteForm = new ClienteListagemForm();
             clienteForm.ShowDialog();
+        }
+
+        private void buttonCadastroProduto_Click(object sender, EventArgs e)
+        {
+            var produtoForm = new ProdutoCadastroEdicaoForm();
+            produtoForm.ShowDialog();
         }
     }
 }
