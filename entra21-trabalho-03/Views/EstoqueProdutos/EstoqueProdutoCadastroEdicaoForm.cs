@@ -14,7 +14,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
             dateTimePickerDataEntradaEstoque.MaxDate = DateTime.Today;
 
-            PreencherComboBoxComFarmacia();
+            PreencherComboBoxComDistribuidora();
 
             PreencherComboBoxComTiposProdutos();
 
@@ -30,13 +30,13 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
         {
             _idParaAlterar = estoqueProduto.Id;
 
-            for (int i = 0; i < comboBoxFarmacia.Items.Count; i++)
+            for (int i = 0; i < comboBoxDistribuidora.Items.Count; i++)
             {
-                var farmaciaPercorrida = comboBoxFarmacia.Items[i] as Distribuidora;
+                var farmaciaPercorrida = comboBoxDistribuidora.Items[i] as Distribuidora;
 
-                if (farmaciaPercorrida.Id == estoqueProduto.Farmacia.Id)
+                if (farmaciaPercorrida.Id == estoqueProduto.Distribuidora.Id)
                 {
-                    comboBoxFarmacia.SelectedItem = farmaciaPercorrida;
+                    comboBoxDistribuidora.SelectedItem = farmaciaPercorrida;
                     break;
                 }
             }
@@ -58,7 +58,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             dateTimePickerDataEntradaEstoque.Text = estoqueProduto.EntradaProdutoEstoque.ToString();
         }
 
-        public void PreencherComboBoxComFarmacia()
+        public void PreencherComboBoxComDistribuidora()
         {
             var farmaciaService = new DistribuidoraService();
             var farmacias = farmaciaService.ObterTodas();
@@ -66,7 +66,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             for (int i = 0; i < farmacias.Count; i++)
             {
                 var farmacia = farmacias[i];
-                comboBoxFarmacia.Items.Add(farmacia);
+                comboBoxDistribuidora.Items.Add(farmacia);
             }
         }
 
@@ -84,7 +84,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            var farmacia = comboBoxFarmacia.SelectedItem as Distribuidora;
+            var farmacia = comboBoxDistribuidora.SelectedItem as Distribuidora;
             var tipoProduto = comboBoxTipoProduto.SelectedItem as TipoProduto1;
             var nome = textBoxNomeProduto.Text.Trim();
             var quantidadeProduto = textBoxQuantidadeProduto.Text.Trim();
@@ -97,7 +97,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
             if (validarDados == false)
                 return;
 
-            estoqueProduto.Farmacia = farmacia;
+            estoqueProduto.Distribuidora = farmacia;
             estoqueProduto.TipoProduto = tipoProduto;
             estoqueProduto.Nome = nome;
             estoqueProduto.QuantidadeProduto = Convert.ToInt32(quantidadeProduto);
@@ -129,7 +129,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
         {
             int quantidadeProdutos;
 
-            if (comboBoxFarmacia.SelectedIndex == -1)
+            if (comboBoxDistribuidora.SelectedIndex == -1)
             {
                 CustomMessageBox.ShowWarning("Selecione alguma farmacia!");
                 return false;

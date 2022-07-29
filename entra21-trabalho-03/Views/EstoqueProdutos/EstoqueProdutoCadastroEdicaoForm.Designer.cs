@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxFarmacia = new System.Windows.Forms.ComboBox();
+            this.comboBoxDistribuidora = new System.Windows.Forms.ComboBox();
             this.comboBoxTipoProduto = new System.Windows.Forms.ComboBox();
             this.textBoxNomeProduto = new System.Windows.Forms.TextBox();
             this.textBoxQuantidadeProduto = new System.Windows.Forms.TextBox();
@@ -49,9 +49,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.Size = new System.Drawing.Size(75, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Farmacia";
+            this.label1.Text = "Distribuidora";
             // 
             // label2
             // 
@@ -98,14 +98,14 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Data de entrada no estoque";
             // 
-            // comboBoxFarmacia
+            // comboBoxDistribuidora
             // 
-            this.comboBoxFarmacia.DisplayMember = "Nome";
-            this.comboBoxFarmacia.FormattingEnabled = true;
-            this.comboBoxFarmacia.Location = new System.Drawing.Point(12, 42);
-            this.comboBoxFarmacia.Name = "comboBoxFarmacia";
-            this.comboBoxFarmacia.Size = new System.Drawing.Size(190, 23);
-            this.comboBoxFarmacia.TabIndex = 6;
+            this.comboBoxDistribuidora.DisplayMember = "Nome";
+            this.comboBoxDistribuidora.FormattingEnabled = true;
+            this.comboBoxDistribuidora.Location = new System.Drawing.Point(12, 42);
+            this.comboBoxDistribuidora.Name = "comboBoxDistribuidora";
+            this.comboBoxDistribuidora.Size = new System.Drawing.Size(190, 23);
+            this.comboBoxDistribuidora.TabIndex = 6;
             // 
             // comboBoxTipoProduto
             // 
@@ -178,7 +178,7 @@
             this.Controls.Add(this.textBoxQuantidadeProduto);
             this.Controls.Add(this.textBoxNomeProduto);
             this.Controls.Add(this.comboBoxTipoProduto);
-            this.Controls.Add(this.comboBoxFarmacia);
+            this.Controls.Add(this.comboBoxDistribuidora);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -201,7 +201,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private ComboBox comboBoxFarmacia;
+        private ComboBox comboBoxDistribuidora;
         private ComboBox comboBoxTipoProduto;
         private TextBox textBoxNomeProduto;
         private TextBox textBoxQuantidadeProduto;

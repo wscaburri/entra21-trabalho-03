@@ -1,4 +1,6 @@
-﻿using entra21_trabalho_03.Services;
+﻿using entra21_trabalho_03.Database;
+using entra21_trabalho_03.Models;
+using entra21_trabalho_03.Services;
 using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.EstoqueProdutos
@@ -28,7 +30,7 @@ namespace entra21_trabalho_03.Views.EstoqueProdutos
                 dataGridView1.Rows.Add(new object[]
                 {
                     estoqueProduto.Id,
-                    estoqueProduto.Farmacia.Nome,
+                    estoqueProduto.Distribuidora.Nome,
                     estoqueProduto.TipoProduto.Nome,
                     estoqueProduto.Nome,
                     estoqueProduto.QuantidadeProduto,
