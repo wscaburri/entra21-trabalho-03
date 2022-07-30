@@ -71,5 +71,16 @@ namespace entra21_trabalho_03.Views.Profissoes
 
             AtualizarRegistrosDataGridView();
         }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(dataGridViewProfissoes.SelectedRows[0].Cells[0].Value);
+
+            profissaoService.Apagar(id);
+
+            AtualizarRegistrosDataGridView();
+
+            MessageBox.Show("Registro de profissão apagado com sucesso!");
+        }
     }
 }

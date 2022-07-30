@@ -38,6 +38,7 @@ namespace entra21_trabalho_03.Services
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
 
+            comando.CommandText = "UPDATE profissoes SET cargo = @CARGO WHERE id = @ID";
             comando.Parameters.AddWithValue("@CARGO", profissao.Cargo);
             comando.Parameters.AddWithValue("@ID", profissao.Id);
 

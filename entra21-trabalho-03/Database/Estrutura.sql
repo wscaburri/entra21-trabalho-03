@@ -1,4 +1,23 @@
-﻿CREATE TABLE tipo_produto(
+﻿CREATE TABLE profissoes(
+	id INTEGER PRIMARY KEY IDENTITY(1,1),
+	cargo VARCHAR(100));
+
+CREATE TABLE funcionarios(
+	id INTEGER PRIMARY KEY IDENTITY(1,1),
+	id_profissao INTEGER,
+	nome VARCHAR(100),
+	cpf VARCHAR(14),
+	data_nascimento DATETIME2,
+	cep VARCHAR(9),
+	endereco VARCHAR(150),
+	numero INTEGER,
+	data_admissao DATETIME2,
+	salario DECIMAL(11,2)
+
+	FOREIGN KEY (id_profissao) REFERENCES profissoes(id));
+
+
+CREATE TABLE tipo_produto(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(120));
 
@@ -12,16 +31,6 @@ CREATE TABLE produto(
 	preco DECIMAL
 	
 	FOREIGN KEY (id_tipo_produto) REFERENCES tipo_produto(id));
-
-CREATE TABLE cliente(
-	id INTEGER PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(100),
-	cpf VARCHAR(14),
-	data_nascimento DATETIME2,
-	cep VARCHAR(9),
-	endereco VARCHAR(100),
-	numero INTEGER
-);
 
 CREATE TABLE distribuidora(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),

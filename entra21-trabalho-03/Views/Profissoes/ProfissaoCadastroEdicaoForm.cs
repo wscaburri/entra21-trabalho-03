@@ -45,5 +45,10 @@ namespace entra21_trabalho_03.Views.Profissoes
 
             Close();
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
