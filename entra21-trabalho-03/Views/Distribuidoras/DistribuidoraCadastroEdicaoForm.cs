@@ -1,7 +1,8 @@
-﻿using entra21_trabalho_03.Models;
+﻿using entra21_trabalho_03.Enums;
+using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
 using entra21_trabalho_03.Views.Components;
-using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace entra21_trabalho_03.Views.Distribuidoras
 {
@@ -138,6 +139,35 @@ namespace entra21_trabalho_03.Views.Distribuidoras
             CustomMessageBox.ShowSuccess("Distribuidora cadastrada com sucesso!!");
 
             Close();
+        }
+
+        private void ObterDadosCep()
+        {
+            var cep = maskedTextBoxCep.Text.Replace("-", "").Trim();
+
+            if (cep.Length != 8)
+                return;
+
+            var httpClient = new HttpClient();
+
+            var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
+
+            if(resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var resposta = resultado.Content.ReadAsStringAsync().Result;
+
+                var dadosEndereco = JsonConvert.DeserializeObject<EnderecoDadosRequisitos>(resposta);
+
+                textBoxEstado.Text = $"{dadosEndereco.Uf}";
+                textBoxCidade.Text = $"{dadosEndereco.Localidade}";
+                textBoxBairro.Text = $"{dadosEndereco.Bairro}";
+                textBoxLogradouro.Text = $"{dadosEndereco.Logradouro}";
+            }
+        }
+
+        private void maskedTextBoxCep_Leave(object sender, EventArgs e)
+        {
+            ObterDadosCep();
         }
     }
 }
