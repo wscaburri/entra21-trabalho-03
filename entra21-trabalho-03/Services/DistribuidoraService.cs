@@ -10,45 +10,47 @@ namespace entra21_trabalho_03.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"DELETE FROM farmacia WHERE id = @ID";
+            comando.CommandText = @"DELETE FROM distribuidora WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             comando.ExecuteNonQuery();
             comando.Connection.Close();
         }
-        public void Cadastrar(Distribuidora farmacia)
+        public void Cadastrar(Distribuidora Distribuidora)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"INSERT INTO farmacia(nome, cnpj, cidade, bairro, logradouro, numero)
+            comando.CommandText = @"INSERT INTO distribuidora(nome, cnpj, estado, cidade, bairro, logradouro, numero)
 VALUES(
-@NOME, @CNPJ, @CIDADE, @BAIRRO, @LOGRADOURO, @NUMERO);";
+@NOME, @CNPJ, @ESTADO, @CIDADE, @BAIRRO, @LOGRADOURO, @NUMERO);";
 
-            comando.Parameters.AddWithValue("@NOME", farmacia.Nome);
-            comando.Parameters.AddWithValue("@CNPJ", farmacia.Cnpj);
-            comando.Parameters.AddWithValue("@CIDADE", farmacia.Cidade);
-            comando.Parameters.AddWithValue("@BAIRRO", farmacia.Bairro);
-            comando.Parameters.AddWithValue("@LOGRADOURO", farmacia.Logradouro);
-            comando.Parameters.AddWithValue("@NUMERO", farmacia.Numero);
+            comando.Parameters.AddWithValue("@NOME", Distribuidora.Nome);
+            comando.Parameters.AddWithValue("@CNPJ", Distribuidora.Cnpj);
+            comando.Parameters.AddWithValue("@ESTADO", Distribuidora.Estado);
+            comando.Parameters.AddWithValue("@CIDADE", Distribuidora.Cidade);
+            comando.Parameters.AddWithValue("@BAIRRO", Distribuidora.Bairro);
+            comando.Parameters.AddWithValue("@LOGRADOURO", Distribuidora.Logradouro);
+            comando.Parameters.AddWithValue("@NUMERO", Distribuidora.Numero);
 
             comando.ExecuteNonQuery();
 
             comando.Connection.Close();
         }
-        public void Editar(Distribuidora farmacia)
+        public void Editar(Distribuidora Distribuidora)
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"UPDATE farmacia SET nome = @NOME, cnpj = @CNPJ, cidade = @CIDADE, bairro = @BAIRRO,
-                logradouro = @LOGRADOURO, numero = @NUMERO
+            comando.CommandText = @"UPDATE distribuidora SET nome = @NOME, cnpj = @CNPJ, estado = @ESTADO, cidade = @CIDADE, 
+bairro = @BAIRRO, logradouro = @LOGRADOURO, numero = @NUMERO
                     WHERE id = @ID";
 
-            comando.Parameters.AddWithValue("@NOME", farmacia.Nome);
-            comando.Parameters.AddWithValue("@CNPJ", farmacia.Cnpj);
-            comando.Parameters.AddWithValue("@CIDADE", farmacia.Cidade);
-            comando.Parameters.AddWithValue("@BAIRRO", farmacia.Bairro);
-            comando.Parameters.AddWithValue("@LOGRADOURO", farmacia.Logradouro);
-            comando.Parameters.AddWithValue("@NUMERO", farmacia.Numero);
-            comando.Parameters.AddWithValue("@ID", farmacia.Id);
+            comando.Parameters.AddWithValue("@NOME", Distribuidora.Nome);
+            comando.Parameters.AddWithValue("@CNPJ", Distribuidora.Cnpj);
+            comando.Parameters.AddWithValue("@ESTADO", Distribuidora.Estado);
+            comando.Parameters.AddWithValue("@CIDADE", Distribuidora.Cidade);
+            comando.Parameters.AddWithValue("@BAIRRO", Distribuidora.Bairro);
+            comando.Parameters.AddWithValue("@LOGRADOURO", Distribuidora.Logradouro);
+            comando.Parameters.AddWithValue("@NUMERO", Distribuidora.Numero);
+            comando.Parameters.AddWithValue("@ID", Distribuidora.Id);
 
             comando.ExecuteNonQuery();
 
@@ -58,8 +60,8 @@ VALUES(
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT id, nome, cnpj, cidade, bairro, logradouro, numero 
-FROM farmacia
+            comando.CommandText = @"SELECT id, nome, cnpj, estado, cidade, bairro, logradouro, numero 
+FROM distribuidora
 WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@ID", id);
@@ -72,51 +74,53 @@ WHERE id = @ID";
 
             var registro = tabelaEmMemoria.Rows[0];
 
-            var farmacia = new Distribuidora();
-            farmacia.Id = Convert.ToInt32(registro["id"]);
-            farmacia.Nome = registro["nome"].ToString();
-            farmacia.Cnpj = registro["cnpj"].ToString();
-            farmacia.Cidade = registro["cidade"].ToString();
-            farmacia.Bairro = registro["bairro"].ToString();
-            farmacia.Logradouro = registro["logradouro"].ToString();
-            farmacia.Numero = Convert.ToInt32(registro["numero"]);
+            var distribuidora = new Distribuidora();
+            distribuidora.Id = Convert.ToInt32(registro["id"]);
+            distribuidora.Nome = registro["nome"].ToString();
+            distribuidora.Cnpj = registro["cnpj"].ToString();
+            distribuidora.Estado = registro["estado"].ToString();
+            distribuidora.Cidade = registro["cidade"].ToString();
+            distribuidora.Bairro = registro["bairro"].ToString();
+            distribuidora.Logradouro = registro["logradouro"].ToString();
+            distribuidora.Numero = Convert.ToInt32(registro["numero"]);
 
             comando.Connection.Close();
 
-            return farmacia;
+            return distribuidora;
         }
         public List<Distribuidora> ObterTodas()
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT id, nome, cnpj, cidade, bairro, logradouro, numero 
-                            FROM farmacia";
+            comando.CommandText = @"SELECT id, nome, cnpj, estado, cidade, bairro, logradouro, numero 
+                            FROM distribuidora";
 
             var tabelaEmMemoria = new DataTable();
 
             tabelaEmMemoria.Load(comando.ExecuteReader());
 
-            var farmacias = new List<Distribuidora>();
+            var distribuidoras = new List<Distribuidora>();
 
             for(int i = 0; i < tabelaEmMemoria.Rows.Count; i++)
             {
                 var registro = tabelaEmMemoria.Rows[i];
 
-                var farmacia = new Distribuidora();
-                farmacia.Id = Convert.ToInt32(registro["id"].ToString());
-                farmacia.Nome = registro["nome"].ToString();
-                farmacia.Cnpj = registro["cnpj"].ToString();
-                farmacia.Cidade = registro["cidade"].ToString();
-                farmacia.Bairro = registro["bairro"].ToString();
-                farmacia.Logradouro = registro["logradouro"].ToString();
-                farmacia.Numero = Convert.ToInt32(registro["numero"].ToString());
+                var distribuidora = new Distribuidora();
+                distribuidora.Id = Convert.ToInt32(registro["id"].ToString());
+                distribuidora.Nome = registro["nome"].ToString();
+                distribuidora.Cnpj = registro["cnpj"].ToString();
+                distribuidora.Estado = registro["estado"].ToString();
+                distribuidora.Cidade = registro["cidade"].ToString();
+                distribuidora.Bairro = registro["bairro"].ToString();
+                distribuidora.Logradouro = registro["logradouro"].ToString();
+                distribuidora.Numero = Convert.ToInt32(registro["numero"].ToString());
 
-                farmacias.Add(farmacia);
+                distribuidoras.Add(distribuidora);
             }
 
             conexao.Close();
 
-            return farmacias;
+            return distribuidoras;
         }
-    }//TODO: Refatorar a Classe FarmaciaService com novo exemplo professor
+    }
 }

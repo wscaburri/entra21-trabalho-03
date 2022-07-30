@@ -3,12 +3,12 @@ using entra21_trabalho_03.Services;
 using entra21_trabalho_03.Views.Components;
 using System.Data.SqlClient;
 
-namespace entra21_trabalho_03.Views.Farmacias
+namespace entra21_trabalho_03.Views.Distribuidoras
 {
     public partial class DistribuidoraCadastroEdicaoForm : Form
     {
         private readonly int _idParaAlterar;
-        private readonly DistribuidoraService _farmaciaService;
+        private readonly DistribuidoraService _distribuidoraService;
 
         private const int modoEdicao = -1;
 
@@ -18,7 +18,7 @@ namespace entra21_trabalho_03.Views.Farmacias
 
             _idParaAlterar = modoEdicao;
 
-            _farmaciaService = new DistribuidoraService();
+            _distribuidoraService = new DistribuidoraService();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -26,41 +26,43 @@ namespace entra21_trabalho_03.Views.Farmacias
             Close();
         }
 
-        public DistribuidoraCadastroEdicaoForm(Distribuidora farmacia) : this()
+        public DistribuidoraCadastroEdicaoForm(Distribuidora Distribuidora) : this()
         {
-            _idParaAlterar = farmacia.Id;
+            _idParaAlterar = Distribuidora.Id;
 
-            textBoxNomeRedeFarmacia.Text = farmacia.Nome;
-            maskedTextBoxCnpj.Text = farmacia.Cnpj;
-            textBoxCidade.Text = farmacia.Cidade;
-            textBoxBairro.Text = farmacia.Bairro;
-            textBoxLogradouro.Text = farmacia.Logradouro;
-            textBoxNumero.Text = farmacia.Numero.ToString();
+            textBoxNome.Text = Distribuidora.Nome;
+            maskedTextBoxCnpj.Text = Distribuidora.Cnpj;
+            textBoxEstado.Text = Distribuidora.Estado;
+            textBoxCidade.Text = Distribuidora.Cidade;
+            textBoxBairro.Text = Distribuidora.Bairro;
+            textBoxLogradouro.Text = Distribuidora.Logradouro;
+            textBoxNumero.Text = Distribuidora.Numero.ToString();
         }
 
-        private void EditarFarmacia(Distribuidora farmacia)
+        private void EditarDistribuidora(Distribuidora distribuidora)
         {
-            farmacia.Id = _idParaAlterar;
+            distribuidora.Id = _idParaAlterar;
 
-            _farmaciaService.Editar(farmacia);
+            _distribuidoraService.Editar(distribuidora);
 
-            CustomMessageBox.ShowSuccess("Farmacia alterada com sucesso!!");
+            CustomMessageBox.ShowSuccess("Distribuidora alterada com sucesso!!");
 
             Close();
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            var nome = textBoxNomeRedeFarmacia.Text.Trim();
+            var nome = textBoxNome.Text.Trim();
             var cnpj = maskedTextBoxCnpj.Text.Trim();
+            var estado = textBoxEstado.Text.Trim();
             var cidade = textBoxCidade.Text.Trim();
             var bairro = textBoxBairro.Text.Trim();
             var logradouro = textBoxLogradouro.Text.Trim();
             int numero;
 
-            var validarDadosFarmacia = ValidarDadosFarmacia();
+            var validarDadosDistribuidora = ValidarDadosDistribuidora();
 
-            if (validarDadosFarmacia == false)
+            if (validarDadosDistribuidora == false)
                 return;
 
             try
@@ -78,31 +80,37 @@ namespace entra21_trabalho_03.Views.Farmacias
                 return;
             }
 
-            var farmacia = new Distribuidora();
-            farmacia.Nome = nome;
-            farmacia.Cnpj = cnpj;
-            farmacia.Cidade = cidade;
-            farmacia.Bairro = bairro;
-            farmacia.Logradouro = logradouro;
-            farmacia.Numero = numero;
+            var Distribuidora = new Distribuidora();
+            Distribuidora.Nome = nome;
+            Distribuidora.Cnpj = cnpj;
+            Distribuidora.Estado = estado;
+            Distribuidora.Cidade = cidade;
+            Distribuidora.Bairro = bairro;
+            Distribuidora.Logradouro = logradouro;
+            Distribuidora.Numero = numero;
 
 
             if (_idParaAlterar == modoEdicao)
-                CadastrarFarmacia(farmacia);
+                CadastrarDistribuidora(Distribuidora);
             else
-                EditarFarmacia(farmacia);
+                EditarDistribuidora(Distribuidora);
         }
 
-        private bool ValidarDadosFarmacia()
+        private bool ValidarDadosDistribuidora()
         {
-            if ((textBoxNomeRedeFarmacia.Text.Length < 7) || (textBoxNomeRedeFarmacia.Text.Length > 60))
+            if ((textBoxNome.Text.Length < 7) || (textBoxNome.Text.Length > 60))
             {
-                CustomMessageBox.ShowError("O nome da farmácia deve conter no minimo 7 caracteres ou no máximo 60");
+                CustomMessageBox.ShowError("O nome da distribuidora deve conter no minimo 7 caracteres ou no máximo 60");
                 return false;
             }
             if (maskedTextBoxCnpj.Text.Length != 18)
             {
                 CustomMessageBox.ShowError("O cnpj deve conter todos os seus 14 numeros!");
+                return false;
+            }
+            if((textBoxEstado.Text.Length < 3) || (textBoxEstado.Text.Length > 100))
+            {
+                CustomMessageBox.ShowError("O estado deve conter um nome valido!");
                 return false;
             }
             if ((textBoxCidade.Text.Length < 5) || (textBoxCidade.Text.Length > 100))
@@ -123,11 +131,11 @@ namespace entra21_trabalho_03.Views.Farmacias
             return true;
         }
 
-        private void CadastrarFarmacia(Distribuidora farmacia)
+        private void CadastrarDistribuidora(Distribuidora distribuidora)
         {
-            _farmaciaService.Cadastrar(farmacia);
+            _distribuidoraService.Cadastrar(distribuidora);
 
-            CustomMessageBox.ShowSuccess("Farmacia cadastrada com sucesso!!");
+            CustomMessageBox.ShowSuccess("Distribuidora cadastrada com sucesso!!");
 
             Close();
         }

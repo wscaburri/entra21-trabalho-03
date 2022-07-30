@@ -32,7 +32,7 @@
             this.buttonCadastroProfissao = new System.Windows.Forms.Button();
             this.buttonTipoProduto = new System.Windows.Forms.Button();
             this.buttonCadastroProduto = new System.Windows.Forms.Button();
-            this.buttonCadastrarFarmacia = new System.Windows.Forms.Button();
+            this.buttonCadastrarDistribuidora = new System.Windows.Forms.Button();
             this.buttonCadastroEstoque = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -76,18 +76,18 @@
             this.buttonCadastroProduto.UseVisualStyleBackColor = true;
             this.buttonCadastroProduto.Click += new System.EventHandler(this.buttonCadastroProduto_Click);
             // 
-            // buttonCadastrarFarmacia
+            // buttonCadastrarDistribuidora
             // 
-            this.buttonCadastrarFarmacia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCadastrarFarmacia.Image = global::entra21_trabalho_03.Properties.Resources.pharmacy;
-            this.buttonCadastrarFarmacia.Location = new System.Drawing.Point(197, 178);
-            this.buttonCadastrarFarmacia.Name = "buttonCadastrarFarmacia";
-            this.buttonCadastrarFarmacia.Size = new System.Drawing.Size(161, 113);
-            this.buttonCadastrarFarmacia.TabIndex = 4;
-            this.buttonCadastrarFarmacia.Text = "Cadastro de Farmacia";
-            this.buttonCadastrarFarmacia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonCadastrarFarmacia.UseVisualStyleBackColor = true;
-            this.buttonCadastrarFarmacia.Click += new System.EventHandler(this.buttonCadastrarFarmacia_Click);
+            this.buttonCadastrarDistribuidora.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCadastrarDistribuidora.Image = global::entra21_trabalho_03.Properties.Resources.pharmacy;
+            this.buttonCadastrarDistribuidora.Location = new System.Drawing.Point(197, 178);
+            this.buttonCadastrarDistribuidora.Name = "buttonCadastrarDistribuidora";
+            this.buttonCadastrarDistribuidora.Size = new System.Drawing.Size(161, 113);
+            this.buttonCadastrarDistribuidora.TabIndex = 4;
+            this.buttonCadastrarDistribuidora.Text = "Cadastro de Distribuidora";
+            this.buttonCadastrarDistribuidora.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonCadastrarDistribuidora.UseVisualStyleBackColor = true;
+            this.buttonCadastrarDistribuidora.Click += new System.EventHandler(this.buttonCadastrarDistribuidora_Click);
             // 
             // buttonCadastroEstoque
             // 
@@ -108,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 300);
             this.Controls.Add(this.buttonCadastroEstoque);
-            this.Controls.Add(this.buttonCadastrarFarmacia);
+            this.Controls.Add(this.buttonCadastrarDistribuidora);
             this.Controls.Add(this.buttonCadastroProduto);
             this.Controls.Add(this.buttonTipoProduto);
             this.Controls.Add(this.buttonCadastroProfissao);
@@ -126,7 +126,7 @@
         private Button buttonCadastroProfissao;
         private Button buttonTipoProduto;
         private Button buttonCadastroProduto;
-        private Button buttonCadastrarFarmacia;
+        private Button buttonCadastrarDistribuidora;
         private Button buttonCadastroEstoque;
     }
 }

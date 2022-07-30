@@ -2,16 +2,16 @@
 using entra21_trabalho_03.Views.Components;
 using System.Data.SqlClient;
 
-namespace entra21_trabalho_03.Views.Farmacias
+namespace entra21_trabalho_03.Views.Distribuidoras
 {
     public partial class DistribuidoraListagemForm : Form
     {
-        private readonly DistribuidoraService _farmaciaService;
+        private readonly DistribuidoraService _distribuidoraService;
         public DistribuidoraListagemForm()
         {
             InitializeComponent();
 
-            _farmaciaService = new DistribuidoraService();
+            _distribuidoraService = new DistribuidoraService();
 
             PreencherDataGridView();
         }
@@ -25,12 +25,12 @@ namespace entra21_trabalho_03.Views.Farmacias
         {
             if(dataGridView1.Rows.Count == 0)
             {
-                CustomMessageBox.ShowWarning("Nenhuma farmacia cadastrada!");
+                CustomMessageBox.ShowWarning("Nenhuma distribuidora cadastrada!");
                 return;
             }
             if(dataGridView1.SelectedRows.Count == 0)
             {
-                CustomMessageBox.ShowWarning("Nunhuma farmacia selecionado!");
+                CustomMessageBox.ShowWarning("Nunhuma distribuidora selecionado!");
 
                 return;
             }
@@ -39,33 +39,34 @@ namespace entra21_trabalho_03.Views.Farmacias
 
             var id = Convert.ToInt32(registroSelecionado.Cells[0].Value);
 
-                var farmacia = _farmaciaService.ObterPorId(id);
+                var distribuidora = _distribuidoraService.ObterPorId(id);
 
-                var farmaciaForm = new DistribuidoraCadastroEdicaoForm(farmacia);
-                farmaciaForm.ShowDialog();
+                var distribuidoraForm = new DistribuidoraCadastroEdicaoForm(distribuidora);
+                distribuidoraForm.ShowDialog();
 
                 PreencherDataGridView();
         }
 
         private void PreencherDataGridView()
         {
-            var farmacias = _farmaciaService.ObterTodas();
+            var distribuidoras = _distribuidoraService.ObterTodas();
 
             dataGridView1.Rows.Clear();
 
-            for(int i = 0; i < farmacias.Count; i++)
+            for(int i = 0; i < distribuidoras.Count; i++)
             {
-                var farmacia = farmacias[i];
+                var distribuidora = distribuidoras[i];
 
                 dataGridView1.Rows.Add(new object[]
                 {
-                    farmacia.Id,
-                    farmacia.Nome,
-                    farmacia.Cnpj,
-                    farmacia.Cidade,
-                    farmacia.Bairro,
-                    farmacia.Logradouro,
-                    farmacia.Numero
+                    distribuidora.Id,
+                    distribuidora.Nome,
+                    distribuidora.Cnpj,
+                    distribuidora.Estado,
+                    distribuidora.Cidade,
+                    distribuidora.Bairro,
+                    distribuidora.Logradouro,
+                    distribuidora.Numero
                 });
             }
         }
@@ -74,21 +75,21 @@ namespace entra21_trabalho_03.Views.Farmacias
         {
             if(dataGridView1.Rows.Count == 0)
             {
-                CustomMessageBox.ShowWarning("Nenhuma farmacia cadastrada!");
+                CustomMessageBox.ShowWarning("Nenhuma distribuidora cadastrada!");
 
                 return;
             }
 
             if(dataGridView1.SelectedRows.Count == 0)
             {
-                CustomMessageBox.ShowWarning("Nenhuma farmacia selecionada!");
+                CustomMessageBox.ShowWarning("Nenhuma distribuidora selecionada!");
 
                 return;
             }
 
-            var desejaApagarFarmacia = MessageBox.Show("Deseja realmente apagar essa farmacia?", "CUIDADO!!!", MessageBoxButtons.YesNo);
+            var desejaApagarDistribuidora = MessageBox.Show("Deseja realmente apagar essa distribuidora?", "CUIDADO!!!", MessageBoxButtons.YesNo);
 
-            if (desejaApagarFarmacia != DialogResult.Yes)
+            if (desejaApagarDistribuidora != DialogResult.Yes)
                 return;
 
             var registroSelecionado = dataGridView1.SelectedRows[0];
@@ -97,9 +98,9 @@ namespace entra21_trabalho_03.Views.Farmacias
 
             try
             {
-                _farmaciaService.Apagar(idRegistroSelecionado);
+                _distribuidoraService.Apagar(idRegistroSelecionado);
 
-                CustomMessageBox.ShowSuccess("Farmacia apagada com sucesso!!");
+                CustomMessageBox.ShowSuccess("Distribuidora apagada com sucesso!!");
 
                 PreencherDataGridView();
             }
@@ -111,9 +112,9 @@ namespace entra21_trabalho_03.Views.Farmacias
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            var farmaciaForm = new DistribuidoraCadastroEdicaoForm();
+            var distribuidoraForm = new DistribuidoraCadastroEdicaoForm();
 
-            farmaciaForm.ShowDialog();
+            distribuidoraForm.ShowDialog();
 
             PreencherDataGridView();
         }
@@ -122,5 +123,5 @@ namespace entra21_trabalho_03.Views.Farmacias
         {
             EditarDados();
         }
-    }//TODO: Refatorar FarmaciaListagemForm com novo exemplo do professor
+    }//TODO: Refatorar DistribuidoraListagemForm com novo exemplo do professor
 }

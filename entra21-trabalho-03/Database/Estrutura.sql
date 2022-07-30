@@ -23,38 +23,39 @@ CREATE TABLE cliente(
 	numero INTEGER
 );
 
-CREATE TABLE farmacia(
+CREATE TABLE distribuidora(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
 	cnpj VARCHAR(18),
+	estado VARCHAR(60),
 	cidade VARCHAR(100),
 	bairro VARCHAR(50),
 	logradouro VARCHAR(100),
 	numero INTEGER
 );
 
-SELECT * FROM farmacia;
+SELECT * FROM distribuidora;
 
-INSERT INTO farmacia (nome, cnpj, cidade, bairro, logradouro, numero) VALUES
-('Claúdio', '18968241000194', 'Bnu City', 'Progresso', 'Rua Progreso', 154);
+INSERT INTO distribuidora(nome, cnpj, estado, cidade, bairro, logradouro, numero) VALUES
+('Claúdio', '18968241000194', 'SC', 'Bnu City', 'Progresso', 'Rua Progreso', 154);
 
 
-SELECT * FROM farmacia;
+SELECT * FROM distribuidora;
 
-INSERT INTO farmacia (nome, cnpj, cidade, bairro, logradouro, numero) VALUES
+INSERT INTO distribuidora(nome, cnpj, cidade, bairro, logradouro, numero) VALUES
 ('Tete', '18968241000194', 'Bc City', 'Zendron', 'Rua Antonio', 587);
 
 
 CREATE TABLE estoque_produto(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
-	id_farmacia INTEGER,
+	id_distribuidora INTEGER,
 	id_tipo_produto INTEGER,
 	nome VARCHAR(70),
 	quantidade_produto INTEGER,
 	validade_produto DATETIME2,
 	data_produto_entrada_estoque DATETIME2
 
-	FOREIGN KEY (id_farmacia) REFERENCES farmacia(id),
+	FOREIGN KEY (id_distribuidora) REFERENCES distribuidora(id),
 	FOREIGN KEY (id_tipo_produto) REFERENCES tipo_produto(id)
 );
 

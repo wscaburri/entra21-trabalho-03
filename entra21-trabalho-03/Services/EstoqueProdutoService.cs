@@ -23,11 +23,11 @@ namespace entra21_trabalho_03.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"INSERT INTO estoque_produto(id_farmacia, id_tipo_produto, nome,
+            comando.CommandText = @"INSERT INTO estoque_produto(id_distribuidora, id_tipo_produto, nome,
 quantidade_produto, validade_produto, data_produto_entrada_estoque) VALUES
-(@ID_FARMACIA, @ID_TIPO_PRODUTO, @NOME, @QUANTIDADE_PRODUTO, @VALIDADE_PRODUTO, @DATA_PRODUTO_ENTRADA_ESTOQUE);";
+(@ID_DISTRIBUIDORA, @ID_TIPO_PRODUTO, @NOME, @QUANTIDADE_PRODUTO, @VALIDADE_PRODUTO, @DATA_PRODUTO_ENTRADA_ESTOQUE);";
 
-            comando.Parameters.AddWithValue("@ID_FARMACIA", estoqueProduto.Distribuidora.Id);
+            comando.Parameters.AddWithValue("@ID_DISTRIBUIDORA", estoqueProduto.Distribuidora.Id);
             comando.Parameters.AddWithValue("@ID_TIPO_PRODUTO", estoqueProduto.TipoProduto.Id);
             comando.Parameters.AddWithValue("@NOME", estoqueProduto.Nome);
             comando.Parameters.AddWithValue("@QUANTIDADE_PRODUTO", estoqueProduto.QuantidadeProduto);
@@ -43,7 +43,7 @@ quantidade_produto, validade_produto, data_produto_entrada_estoque) VALUES
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"UPDATE estoque_produto SET id_farmacia = @ID_FARMACIA,
+            comando.CommandText = @"UPDATE estoque_produto SET id_distribuidora = @ID_DISTRIBUIDORA,
 id_tipo_produto = @ID_TIPO_PRODUTO,
 nome = @NOME,
 quantidade_produto = @QUANTIDADE_PRODUTO,
@@ -51,7 +51,7 @@ validade_produto = @VALIDADE_PRODUTO,
 data_produto_entrada_estoque = @DATA_PRODUTO_ENTRADA_ESTOQUE
 WHERE id = @ID";
 
-            comando.Parameters.AddWithValue("@ID_FARMACIA", estoqueProduto.Distribuidora.Id);
+            comando.Parameters.AddWithValue("@ID_DISTRIBUIDORA", estoqueProduto.Distribuidora.Id);
             comando.Parameters.AddWithValue("@ID_TIPO_PRODUTO", estoqueProduto.TipoProduto.Id);
             comando.Parameters.AddWithValue("@NOME", estoqueProduto.Nome);
             comando.Parameters.AddWithValue("@QUANTIDADE_PRODUTO", estoqueProduto.QuantidadeProduto);
@@ -68,7 +68,7 @@ WHERE id = @ID";
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT id, id_farmacia, id_tipo_produto, nome, quantidade_produto,
+            comando.CommandText = @"SELECT id, id_distribuidora, id_tipo_produto, nome, quantidade_produto,
 validade_produto, data_produto_entrada_estoque FROM estoque_produto
 WHERE id = @ID";
 
@@ -84,7 +84,7 @@ WHERE id = @ID";
             var estoqueProduto = new EstoqueProduto();
             estoqueProduto.Id = Convert.ToInt32(registro[0]);
             estoqueProduto.Distribuidora = new Distribuidora();
-            estoqueProduto.Distribuidora.Id = Convert.ToInt32(registro["id_farmacia"]);
+            estoqueProduto.Distribuidora.Id = Convert.ToInt32(registro["id_distribuidora"]);
             estoqueProduto.TipoProduto = new TipoProduto1();
             estoqueProduto.TipoProduto.Id = Convert.ToInt32(registro["id_tipo_produto"]);
             estoqueProduto.Nome = registro["nome"].ToString();
@@ -107,12 +107,12 @@ ep.nome AS 'nome',
 ep.quantidade_produto AS 'quantidade_produto',
 ep.validade_produto AS 'validade_produto',
 ep.data_produto_entrada_estoque AS 'data_produto_entrada_estoque',
-f.id AS 'farmacia_id',
-f.nome AS 'farmacia_nome',
+f.id AS 'distribuidora_id',
+f.nome AS 'distribuidora_nome',
 tp.id AS 'tipo_produto_id',
 tp.nome AS 'tipo_produto_nome'
 FROM estoque_produto AS ep
-INNER JOIN farmacia AS f ON(ep.id_farmacia = f.id)
+INNER JOIN distribuidora AS f ON(ep.id_distribuidora = f.id)
 INNER JOIN tipo_produto AS tp ON(ep.id_tipo_produto = tp.id)";
 
             var tabelaEmMemoria = new DataTable();
@@ -130,8 +130,8 @@ INNER JOIN tipo_produto AS tp ON(ep.id_tipo_produto = tp.id)";
                 estoqueProduto.QuantidadeProduto = Convert.ToInt32(registro["quantidade_produto"]);
                 estoqueProduto.ValidadeProduto = Convert.ToDateTime(registro["validade_produto"]);
                 estoqueProduto.Distribuidora = new Distribuidora();
-                estoqueProduto.Distribuidora.Id = Convert.ToInt32(registro["farmacia_id"]);
-                estoqueProduto.Distribuidora.Nome = registro["farmacia_nome"].ToString();
+                estoqueProduto.Distribuidora.Id = Convert.ToInt32(registro["distribuidora_id"]);
+                estoqueProduto.Distribuidora.Nome = registro["distribuidora_nome"].ToString();
                 estoqueProduto.TipoProduto = new TipoProduto1();
                 estoqueProduto.TipoProduto.Id = Convert.ToInt32(registro["tipo_produto_id"]);
                 estoqueProduto.TipoProduto.Nome = registro["tipo_produto_nome"].ToString();
@@ -158,7 +158,7 @@ f.nome,
 tp.id,
 tp.nome
 FROM estoque_produto AS ep
-INNER JOIN farmacia AS f ON(ep.id_farmacia = f.id)
+INNER JOIN distribuidora AS f ON(ep.id_distribuidora = f.id)
 INNER JOIN tipo_produto AS tp ON(ep.id_tipo_produto = tp.id)
 WHERE ep.nome = @EP.NOME";
 
@@ -177,7 +177,7 @@ WHERE ep.nome = @EP.NOME";
                 estoqueProduto.Id = Convert.ToInt32(registro["id"]);
                 estoqueProduto.Nome = registro["nome"].ToString();
                 estoqueProduto.Distribuidora = new Distribuidora();
-                estoqueProduto.Distribuidora.Nome = registro["farmacia_nome"].ToString();
+                estoqueProduto.Distribuidora.Nome = registro["distribuidora_nome"].ToString();
                 estoqueProduto.EntradaProdutoEstoque = Convert.ToDateTime(registro["data_produto_entrada_estoque"]);
 
                 estoqueProdutos.Add(estoqueProduto);

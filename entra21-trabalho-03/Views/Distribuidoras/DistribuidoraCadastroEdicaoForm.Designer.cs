@@ -1,4 +1,4 @@
-﻿namespace entra21_trabalho_03.Views.Farmacias
+﻿namespace entra21_trabalho_03.Views.Distribuidoras
 {
     partial class DistribuidoraCadastroEdicaoForm
     {
@@ -37,11 +37,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.maskedTextBoxCnpj = new System.Windows.Forms.MaskedTextBox();
-            this.textBoxNomeRedeFarmacia = new System.Windows.Forms.TextBox();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
             this.textBoxCidade = new System.Windows.Forms.TextBox();
             this.textBoxBairro = new System.Windows.Forms.TextBox();
             this.textBoxLogradouro = new System.Windows.Forms.TextBox();
             this.textBoxNumero = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonSalvar
@@ -69,9 +71,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 15);
+            this.label1.Size = new System.Drawing.Size(127, 15);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Nome/Rede Farmacia";
+            this.label1.Text = "Nome da Distribuidora";
             // 
             // label2
             // 
@@ -85,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 174);
+            this.label3.Location = new System.Drawing.Point(12, 220);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 5;
@@ -94,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 228);
+            this.label4.Location = new System.Drawing.Point(12, 274);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 15);
             this.label4.TabIndex = 6;
@@ -103,7 +105,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 290);
+            this.label5.Location = new System.Drawing.Point(12, 336);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 15);
             this.label5.TabIndex = 7;
@@ -112,7 +114,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 346);
+            this.label6.Location = new System.Drawing.Point(12, 392);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 15);
             this.label6.TabIndex = 8;
@@ -128,49 +130,67 @@
             // 
             // textBoxNomeRedeFarmacia
             // 
-            this.textBoxNomeRedeFarmacia.Location = new System.Drawing.Point(12, 71);
-            this.textBoxNomeRedeFarmacia.Name = "textBoxNomeRedeFarmacia";
-            this.textBoxNomeRedeFarmacia.Size = new System.Drawing.Size(237, 23);
-            this.textBoxNomeRedeFarmacia.TabIndex = 10;
+            this.textBoxNome.Location = new System.Drawing.Point(12, 71);
+            this.textBoxNome.Name = "textBoxNomeRedeFarmacia";
+            this.textBoxNome.Size = new System.Drawing.Size(237, 23);
+            this.textBoxNome.TabIndex = 10;
             // 
             // textBoxCidade
             // 
-            this.textBoxCidade.Location = new System.Drawing.Point(12, 192);
+            this.textBoxCidade.Location = new System.Drawing.Point(12, 238);
             this.textBoxCidade.Name = "textBoxCidade";
             this.textBoxCidade.Size = new System.Drawing.Size(237, 23);
             this.textBoxCidade.TabIndex = 11;
             // 
             // textBoxBairro
             // 
-            this.textBoxBairro.Location = new System.Drawing.Point(12, 246);
+            this.textBoxBairro.Location = new System.Drawing.Point(12, 292);
             this.textBoxBairro.Name = "textBoxBairro";
             this.textBoxBairro.Size = new System.Drawing.Size(237, 23);
             this.textBoxBairro.TabIndex = 12;
             // 
             // textBoxLogradouro
             // 
-            this.textBoxLogradouro.Location = new System.Drawing.Point(12, 308);
+            this.textBoxLogradouro.Location = new System.Drawing.Point(12, 354);
             this.textBoxLogradouro.Name = "textBoxLogradouro";
             this.textBoxLogradouro.Size = new System.Drawing.Size(237, 23);
             this.textBoxLogradouro.TabIndex = 13;
             // 
             // textBoxNumero
             // 
-            this.textBoxNumero.Location = new System.Drawing.Point(12, 364);
+            this.textBoxNumero.Location = new System.Drawing.Point(12, 410);
             this.textBoxNumero.Name = "textBoxNumero";
             this.textBoxNumero.Size = new System.Drawing.Size(237, 23);
             this.textBoxNumero.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 15);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Estado";
+            // 
+            // textBoxEstado
+            // 
+            this.textBoxEstado.Location = new System.Drawing.Point(12, 188);
+            this.textBoxEstado.Name = "textBoxEstado";
+            this.textBoxEstado.Size = new System.Drawing.Size(234, 23);
+            this.textBoxEstado.TabIndex = 16;
             // 
             // DistribuidoraCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 407);
+            this.ClientSize = new System.Drawing.Size(258, 468);
+            this.Controls.Add(this.textBoxEstado);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxNumero);
             this.Controls.Add(this.textBoxLogradouro);
             this.Controls.Add(this.textBoxBairro);
             this.Controls.Add(this.textBoxCidade);
-            this.Controls.Add(this.textBoxNomeRedeFarmacia);
+            this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.maskedTextBoxCnpj);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -199,10 +219,12 @@
         private Label label5;
         private Label label6;
         private MaskedTextBox maskedTextBoxCnpj;
-        private TextBox textBoxNomeRedeFarmacia;
+        private TextBox textBoxNome;
         private TextBox textBoxCidade;
         private TextBox textBoxBairro;
         private TextBox textBoxLogradouro;
         private TextBox textBoxNumero;
+        private Label label7;
+        private TextBox textBoxEstado;
     }
 }

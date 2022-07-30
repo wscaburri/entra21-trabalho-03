@@ -1,4 +1,4 @@
-﻿namespace entra21_trabalho_03.Views.Farmacias
+﻿namespace entra21_trabalho_03.Views.Distribuidoras
 {
     partial class DistribuidoraListagemForm
     {
@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonCadastrar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonApagar = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonApagar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             this.ColumnId,
             this.ColumnNome,
             this.ColumnCnpj,
+            this.ColumnEstado,
             this.ColumnCidade,
             this.ColumnBairro,
             this.ColumnLogradouro,
@@ -60,51 +62,9 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 395);
+            this.dataGridView1.Size = new System.Drawing.Size(845, 395);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.ReadOnly = true;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            // 
-            // ColumnCnpj
-            // 
-            this.ColumnCnpj.HeaderText = "CNPJ";
-            this.ColumnCnpj.Name = "ColumnCnpj";
-            this.ColumnCnpj.ReadOnly = true;
-            // 
-            // ColumnCidade
-            // 
-            this.ColumnCidade.HeaderText = "Cidade";
-            this.ColumnCidade.Name = "ColumnCidade";
-            this.ColumnCidade.ReadOnly = true;
-            // 
-            // ColumnBairro
-            // 
-            this.ColumnBairro.HeaderText = "Bairro";
-            this.ColumnBairro.Name = "ColumnBairro";
-            this.ColumnBairro.ReadOnly = true;
-            // 
-            // ColumnLogradouro
-            // 
-            this.ColumnLogradouro.HeaderText = "Logradouro";
-            this.ColumnLogradouro.Name = "ColumnLogradouro";
-            this.ColumnLogradouro.ReadOnly = true;
-            // 
-            // ColumnNumero
-            // 
-            this.ColumnNumero.HeaderText = "Numero";
-            this.ColumnNumero.Name = "ColumnNumero";
-            this.ColumnNumero.ReadOnly = true;
             // 
             // buttonCadastrar
             // 
@@ -136,11 +96,59 @@
             this.buttonApagar.UseVisualStyleBackColor = true;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnCnpj
+            // 
+            this.ColumnCnpj.HeaderText = "CNPJ";
+            this.ColumnCnpj.Name = "ColumnCnpj";
+            this.ColumnCnpj.ReadOnly = true;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
+            // 
+            // ColumnCidade
+            // 
+            this.ColumnCidade.HeaderText = "Cidade";
+            this.ColumnCidade.Name = "ColumnCidade";
+            this.ColumnCidade.ReadOnly = true;
+            // 
+            // ColumnBairro
+            // 
+            this.ColumnBairro.HeaderText = "Bairro";
+            this.ColumnBairro.Name = "ColumnBairro";
+            this.ColumnBairro.ReadOnly = true;
+            // 
+            // ColumnLogradouro
+            // 
+            this.ColumnLogradouro.HeaderText = "Logradouro";
+            this.ColumnLogradouro.Name = "ColumnLogradouro";
+            this.ColumnLogradouro.ReadOnly = true;
+            // 
+            // ColumnNumero
+            // 
+            this.ColumnNumero.HeaderText = "Numero";
+            this.ColumnNumero.Name = "ColumnNumero";
+            this.ColumnNumero.ReadOnly = true;
+            // 
             // DistribuidoraListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 450);
+            this.ClientSize = new System.Drawing.Size(855, 450);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCadastrar);
@@ -162,6 +170,7 @@
         private DataGridViewTextBoxColumn ColumnId;
         private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnCnpj;
+        private DataGridViewTextBoxColumn ColumnEstado;
         private DataGridViewTextBoxColumn ColumnCidade;
         private DataGridViewTextBoxColumn ColumnBairro;
         private DataGridViewTextBoxColumn ColumnLogradouro;
