@@ -33,6 +33,7 @@ namespace entra21_trabalho_03.Views.Distribuidoras
 
             textBoxNome.Text = Distribuidora.Nome;
             maskedTextBoxCnpj.Text = Distribuidora.Cnpj;
+            maskedTextBoxCep.Text = Distribuidora.Cep;
             textBoxEstado.Text = Distribuidora.Estado;
             textBoxCidade.Text = Distribuidora.Cidade;
             textBoxBairro.Text = Distribuidora.Bairro;
@@ -55,6 +56,7 @@ namespace entra21_trabalho_03.Views.Distribuidoras
         {
             var nome = textBoxNome.Text.Trim();
             var cnpj = maskedTextBoxCnpj.Text.Trim();
+            var cep = maskedTextBoxCep.Text.Trim();
             var estado = textBoxEstado.Text.Trim();
             var cidade = textBoxCidade.Text.Trim();
             var bairro = textBoxBairro.Text.Trim();
@@ -84,6 +86,7 @@ namespace entra21_trabalho_03.Views.Distribuidoras
             var Distribuidora = new Distribuidora();
             Distribuidora.Nome = nome;
             Distribuidora.Cnpj = cnpj;
+            Distribuidora.Cep = cep;
             Distribuidora.Estado = estado;
             Distribuidora.Cidade = cidade;
             Distribuidora.Bairro = bairro;
@@ -109,7 +112,12 @@ namespace entra21_trabalho_03.Views.Distribuidoras
                 CustomMessageBox.ShowError("O cnpj deve conter todos os seus 14 numeros!");
                 return false;
             }
-            if((textBoxEstado.Text.Length < 3) || (textBoxEstado.Text.Length > 100))
+            if(maskedTextBoxCep.Text.Length != 9)
+            {
+                CustomMessageBox.ShowError("O cep não pode conter menos que 8 numeros!");
+                return false;
+            }
+            if((textBoxEstado.Text.Length < 1) || (textBoxEstado.Text.Length > 100))
             {
                 CustomMessageBox.ShowError("O estado deve conter um nome valido!");
                 return false;

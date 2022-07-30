@@ -19,12 +19,13 @@ namespace entra21_trabalho_03.Services
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"INSERT INTO distribuidora(nome, cnpj, estado, cidade, bairro, logradouro, numero)
+            comando.CommandText = @"INSERT INTO distribuidora(nome, cnpj, cep, estado, cidade, bairro, logradouro, numero)
 VALUES(
-@NOME, @CNPJ, @ESTADO, @CIDADE, @BAIRRO, @LOGRADOURO, @NUMERO);";
+@NOME, @CNPJ, @CEP, @ESTADO, @CIDADE, @BAIRRO, @LOGRADOURO, @NUMERO);";
 
             comando.Parameters.AddWithValue("@NOME", Distribuidora.Nome);
             comando.Parameters.AddWithValue("@CNPJ", Distribuidora.Cnpj);
+            comando.Parameters.AddWithValue("@CEP", Distribuidora.Cep);
             comando.Parameters.AddWithValue("@ESTADO", Distribuidora.Estado);
             comando.Parameters.AddWithValue("@CIDADE", Distribuidora.Cidade);
             comando.Parameters.AddWithValue("@BAIRRO", Distribuidora.Bairro);
@@ -39,12 +40,13 @@ VALUES(
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"UPDATE distribuidora SET nome = @NOME, cnpj = @CNPJ, estado = @ESTADO, cidade = @CIDADE, 
+            comando.CommandText = @"UPDATE distribuidora SET nome = @NOME, cnpj = @CNPJ, cep = @CEP, estado = @ESTADO, cidade = @CIDADE, 
 bairro = @BAIRRO, logradouro = @LOGRADOURO, numero = @NUMERO
                     WHERE id = @ID";
 
             comando.Parameters.AddWithValue("@NOME", Distribuidora.Nome);
             comando.Parameters.AddWithValue("@CNPJ", Distribuidora.Cnpj);
+            comando.Parameters.AddWithValue("@CEP", Distribuidora.Cep);
             comando.Parameters.AddWithValue("@ESTADO", Distribuidora.Estado);
             comando.Parameters.AddWithValue("@CIDADE", Distribuidora.Cidade);
             comando.Parameters.AddWithValue("@BAIRRO", Distribuidora.Bairro);
@@ -60,7 +62,7 @@ bairro = @BAIRRO, logradouro = @LOGRADOURO, numero = @NUMERO
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT id, nome, cnpj, estado, cidade, bairro, logradouro, numero 
+            comando.CommandText = @"SELECT id, nome, cnpj, cep, estado, cidade, bairro, logradouro, numero 
 FROM distribuidora
 WHERE id = @ID";
 
@@ -78,6 +80,7 @@ WHERE id = @ID";
             distribuidora.Id = Convert.ToInt32(registro["id"]);
             distribuidora.Nome = registro["nome"].ToString();
             distribuidora.Cnpj = registro["cnpj"].ToString();
+            distribuidora.Cep = registro["cep"].ToString();
             distribuidora.Estado = registro["estado"].ToString();
             distribuidora.Cidade = registro["cidade"].ToString();
             distribuidora.Bairro = registro["bairro"].ToString();
@@ -92,7 +95,7 @@ WHERE id = @ID";
         {
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
-            comando.CommandText = @"SELECT id, nome, cnpj, estado, cidade, bairro, logradouro, numero 
+            comando.CommandText = @"SELECT id, nome, cnpj, cep, estado, cidade, bairro, logradouro, numero 
                             FROM distribuidora";
 
             var tabelaEmMemoria = new DataTable();
@@ -109,6 +112,7 @@ WHERE id = @ID";
                 distribuidora.Id = Convert.ToInt32(registro["id"].ToString());
                 distribuidora.Nome = registro["nome"].ToString();
                 distribuidora.Cnpj = registro["cnpj"].ToString();
+                distribuidora.Cep = registro["cep"].ToString();
                 distribuidora.Estado = registro["estado"].ToString();
                 distribuidora.Cidade = registro["cidade"].ToString();
                 distribuidora.Bairro = registro["bairro"].ToString();

@@ -31,12 +31,14 @@ CREATE TABLE produto(
 	preco DECIMAL
 	
 	FOREIGN KEY (id_tipo_produto) REFERENCES tipo_produto(id));
+DROP TABLE distribuidora;
 
 CREATE TABLE distribuidora(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(100),
 	cnpj VARCHAR(18),
-	estado VARCHAR(60),
+	cep VARCHAR(9),
+	estado VARCHAR(5),
 	cidade VARCHAR(100),
 	bairro VARCHAR(50),
 	logradouro VARCHAR(100),
@@ -45,8 +47,8 @@ CREATE TABLE distribuidora(
 
 SELECT * FROM distribuidora;
 
-INSERT INTO distribuidora(nome, cnpj, estado, cidade, bairro, logradouro, numero) VALUES
-('Claúdio', '18968241000194', 'SC', 'Bnu City', 'Progresso', 'Rua Progreso', 154);
+INSERT INTO distribuidora(nome, cnpj, cep, estado, cidade, bairro, logradouro, numero) VALUES
+('Claúdio', '18968241000194', '89026802', 'SC', 'Bnu City', 'Progresso', 'Rua Progreso', 154);
 
 
 SELECT * FROM distribuidora;
@@ -54,6 +56,7 @@ SELECT * FROM distribuidora;
 INSERT INTO distribuidora(nome, cnpj, cidade, bairro, logradouro, numero) VALUES
 ('Tete', '18968241000194', 'Bc City', 'Zendron', 'Rua Antonio', 587);
 
+DROP TABLE estoque_produto;
 
 CREATE TABLE estoque_produto(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),

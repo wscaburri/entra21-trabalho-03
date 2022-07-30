@@ -62,6 +62,7 @@ namespace entra21_trabalho_03.Views.Distribuidoras
                     distribuidora.Id,
                     distribuidora.Nome,
                     distribuidora.Cnpj,
+                    distribuidora.Cep,
                     distribuidora.Estado,
                     distribuidora.Cidade,
                     distribuidora.Bairro,

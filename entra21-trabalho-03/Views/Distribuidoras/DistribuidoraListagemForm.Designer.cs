@@ -35,6 +35,7 @@
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +53,7 @@
             this.ColumnId,
             this.ColumnNome,
             this.ColumnCnpj,
+            this.ColumnCep,
             this.ColumnEstado,
             this.ColumnCidade,
             this.ColumnBairro,
@@ -62,7 +64,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(845, 395);
+            this.dataGridView1.Size = new System.Drawing.Size(946, 395);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -114,6 +116,12 @@
             this.ColumnCnpj.Name = "ColumnCnpj";
             this.ColumnCnpj.ReadOnly = true;
             // 
+            // ColumnCep
+            // 
+            this.ColumnCep.HeaderText = "CEP";
+            this.ColumnCep.Name = "ColumnCep";
+            this.ColumnCep.ReadOnly = true;
+            // 
             // ColumnEstado
             // 
             this.ColumnEstado.HeaderText = "Estado";
@@ -148,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 450);
+            this.ClientSize = new System.Drawing.Size(965, 453);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCadastrar);
@@ -170,6 +178,7 @@
         private DataGridViewTextBoxColumn ColumnId;
         private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnCnpj;
+        private DataGridViewTextBoxColumn ColumnCep;
         private DataGridViewTextBoxColumn ColumnEstado;
         private DataGridViewTextBoxColumn ColumnCidade;
         private DataGridViewTextBoxColumn ColumnBairro;
