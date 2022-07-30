@@ -42,13 +42,13 @@ namespace entra21_trabalho_03.Views.Funcionarios
 
         private void PreencherComboBoxCargo()
         {
-            var funcionarioService = new FuncionarioService();
-            var funcionarios = funcionarioService.ObterTodos();
+            var profissaoService = new ProfissaoService();
+            var profissoes = profissaoService.ObterTodos();
 
-            for (int i = 0; i < funcionarios.Count; i++)
+            for (int i = 0; i < profissoes.Count; i++)
             {
-                var funcionario = funcionarios[i];
-                comboBoxCargo.Items.Add(funcionario);
+                var profissao = profissoes[i];
+                comboBoxCargo.Items.Add(profissao);
             }
         }
 
