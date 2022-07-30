@@ -4,13 +4,13 @@ namespace entra21_trabalho_03.Views.Clientes
 {
     public partial class ClienteListagemForm : Form
     {
-        private ClienteService clienteService;
+        private FuncionarioService clienteService;
 
         public ClienteListagemForm()
         {
             InitializeComponent();
 
-            clienteService = new ClienteService();
+            clienteService = new FuncionarioService();
         }
 
         private void AtualizarRegistroDataGridView()

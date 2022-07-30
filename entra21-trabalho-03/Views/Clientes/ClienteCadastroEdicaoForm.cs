@@ -12,7 +12,7 @@ namespace entra21_trabalho_03.Views.Clientes
             InitializeComponent();
         }
 
-        public ClienteCadastroEdicaoForm(Cliente cliente) : this()
+        public ClienteCadastroEdicaoForm(Funcionario cliente) : this()
         {
             idEdicao = cliente.Id;
             textBoxNomeCompleto.Text = cliente.NomeCompleto;
@@ -32,7 +32,7 @@ namespace entra21_trabalho_03.Views.Clientes
             var endereco = textBoxEndereco.Text.Trim();
             var numero = textBoxNumero.Text.Trim();
 
-            var cliente = new Cliente();
+            var cliente = new Funcionario();
             cliente.NomeCompleto = nome;
             cliente.Cpf = cpf;
             cliente.DataNascimento = dataNascimento;
@@ -40,7 +40,7 @@ namespace entra21_trabalho_03.Views.Clientes
             cliente.Endereco = endereco;
             cliente.Numero = Convert.ToInt32(numero);
 
-            var clienteService = new ClienteService();
+            var clienteService = new FuncionarioService();
 
             if (idEdicao == -1)
             {
