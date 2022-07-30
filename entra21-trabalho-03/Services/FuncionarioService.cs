@@ -140,6 +140,8 @@ INNER JOIN profissoes AS p ON(f.id_profissao = p.id)";
                 funcionario.Numero = Convert.ToInt32(registro["numero"].ToString());
                 funcionario.DataAdmissao = Convert.ToDateTime(registro["data_admissao"]);
                 funcionario.Salario = Convert.ToDouble(registro["salario"]);
+
+                funcionario.Profissao = new Profissao();
                 funcionario.Profissao.Id = Convert.ToInt32(registro["profissao_id"]);
                 funcionario.Profissao.Cargo = registro["profissao_cargo"].ToString();
 

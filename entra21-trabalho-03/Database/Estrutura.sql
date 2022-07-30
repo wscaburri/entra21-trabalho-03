@@ -16,6 +16,8 @@ CREATE TABLE funcionarios(
 
 	FOREIGN KEY (id_profissao) REFERENCES profissoes(id));
 
+SELECT * FROM profissoes;
+SELECT * FROM funcionarios;
 
 CREATE TABLE tipo_produto(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
