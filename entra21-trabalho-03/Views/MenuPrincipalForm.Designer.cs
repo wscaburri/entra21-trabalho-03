@@ -42,7 +42,7 @@
             this.buttonCadastroCliente.Name = "buttonCadastroCliente";
             this.buttonCadastroCliente.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroCliente.TabIndex = 0;
-            this.buttonCadastroCliente.Text = "Cadastro de Cliente";
+            this.buttonCadastroCliente.Text = "Cadastro de Funcionários";
             this.buttonCadastroCliente.UseVisualStyleBackColor = true;
             this.buttonCadastroCliente.Click += new System.EventHandler(this.buttonCadastroCliente_Click);
             // 

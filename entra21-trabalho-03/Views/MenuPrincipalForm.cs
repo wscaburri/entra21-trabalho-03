@@ -1,6 +1,6 @@
-﻿using entra21_trabalho_03.Views.Clientes;
+﻿using entra21_trabalho_03.Views.Distribuidoras;
 using entra21_trabalho_03.Views.EstoqueProdutos;
-using entra21_trabalho_03.Views.Distribuidoras;
+using entra21_trabalho_03.Views.Funcionarios;
 using entra21_trabalho_03.Views.Produtos;
 using entra21_trabalho_03.Views.Profissoes;
 using entra21_trabalho_03.Views.TipoProdutos;
@@ -16,7 +16,6 @@ namespace entra21_trabalho_03.Views
 
         private void buttonCadastrarFarmacia_Click(object sender, EventArgs e)
         {
-
         }
 
         private void buttonCadastroEstoque_Click(object sender, EventArgs e)
@@ -33,7 +32,7 @@ namespace entra21_trabalho_03.Views
 
         private void buttonCadastroCliente_Click(object sender, EventArgs e)
         {
-            var clienteForm = new ClienteListagemForm();
+            var clienteForm = new FuncionarioListagemForm();
             clienteForm.ShowDialog();
         }
 
