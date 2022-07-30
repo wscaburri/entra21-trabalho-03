@@ -33,6 +33,7 @@ CREATE TABLE produto(
 	preco DECIMAL
 	
 	FOREIGN KEY (id_tipo_produto) REFERENCES tipo_produto(id));
+
 DROP TABLE distribuidora;
 
 CREATE TABLE distribuidora(

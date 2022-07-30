@@ -102,7 +102,7 @@ namespace entra21_trabalho_03.Views.Distribuidoras
 
         private bool ValidarDadosDistribuidora()
         {
-            if ((textBoxNome.Text.Length < 7) || (textBoxNome.Text.Length > 60))
+            if ((textBoxNome.Text.Length < 3) || (textBoxNome.Text.Length > 60))
             {
                 CustomMessageBox.ShowError("O nome da distribuidora deve conter no minimo 7 caracteres ou no máximo 60");
                 return false;
