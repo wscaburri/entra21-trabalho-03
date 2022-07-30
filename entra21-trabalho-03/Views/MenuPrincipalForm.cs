@@ -2,6 +2,7 @@
 using entra21_trabalho_03.Views.EstoqueProdutos;
 using entra21_trabalho_03.Views.Farmacias;
 using entra21_trabalho_03.Views.Produtos;
+using entra21_trabalho_03.Views.Profissoes;
 using entra21_trabalho_03.Views.TipoProdutos;
 
 namespace entra21_trabalho_03.Views
@@ -41,6 +42,12 @@ namespace entra21_trabalho_03.Views
         {
             var produtoForm = new ProdutoCadastroEdicaoForm();
             produtoForm.ShowDialog();
+        }
+
+        private void buttonCadastroProfissao_Click(object sender, EventArgs e)
+        {
+            var profissaoForm = new ProfissaoListagemForm();
+            profissaoForm.ShowDialog();
         }
     }
 }
