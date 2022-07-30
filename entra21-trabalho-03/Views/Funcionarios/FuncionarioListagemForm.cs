@@ -30,13 +30,13 @@ namespace entra21_trabalho_03.Views.Funcionarios
                     funcionario.Id,
                     funcionario.NomeCompleto,
                     funcionario.Cpf,
+                    funcionario.Profissao.Cargo,
+                    funcionario.Salario,
+                    funcionario.DataAdmissao,
                     funcionario.DataNascimento,
                     funcionario.Cep,
                     funcionario.Endereco,
-                    funcionario.Numero,
-                    funcionario.DataAdmissao,
-                    funcionario.Salario,
-                    funcionario.Profissao.Cargo
+                    funcionario.Numero
                 });
             }
         }

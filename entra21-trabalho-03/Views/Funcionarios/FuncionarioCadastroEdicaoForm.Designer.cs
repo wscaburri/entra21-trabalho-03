@@ -178,6 +178,7 @@
             // 
             // comboBoxCargo
             // 
+            this.comboBoxCargo.DisplayMember = "Cargo";
             this.comboBoxCargo.FormattingEnabled = true;
             this.comboBoxCargo.Location = new System.Drawing.Point(26, 291);
             this.comboBoxCargo.Name = "comboBoxCargo";

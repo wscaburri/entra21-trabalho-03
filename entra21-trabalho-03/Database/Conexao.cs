@@ -8,7 +8,7 @@ namespace entra21_trabalho_03.Database
         {
             var conexao = new SqlConnection();
 
-            var connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Claudio\source\repos\wscaburri\entra21-trabalho-03\entra21-trabalho-03\Database\UltimaTentativa.mdf;Integrated Security=True;Connect Timeout=30";
+            var connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\wscab\source\repos\BancoDados.mdf;Integrated Security=True;Connect Timeout=30";
 
             conexao.ConnectionString = connectionString;
 

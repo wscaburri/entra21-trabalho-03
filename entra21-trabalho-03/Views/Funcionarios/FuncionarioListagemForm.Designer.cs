@@ -34,10 +34,10 @@
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDataAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,10 +53,10 @@
             this.dataGridViewFuncionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
             this.ColumnNome,
+            this.ColumnCpf,
             this.ColumnCargo,
             this.ColumnSalario,
             this.ColumnDataAdmissao,
-            this.ColumnCpf,
             this.ColumnDataNascimento,
             this.ColumnCep,
             this.ColumnEndereco,
@@ -110,6 +110,12 @@
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
             // 
+            // ColumnCpf
+            // 
+            this.ColumnCpf.HeaderText = "CPF";
+            this.ColumnCpf.Name = "ColumnCpf";
+            this.ColumnCpf.ReadOnly = true;
+            // 
             // ColumnCargo
             // 
             this.ColumnCargo.HeaderText = "Cargo";
@@ -127,12 +133,6 @@
             this.ColumnDataAdmissao.HeaderText = "Data de Admissão";
             this.ColumnDataAdmissao.Name = "ColumnDataAdmissao";
             this.ColumnDataAdmissao.ReadOnly = true;
-            // 
-            // ColumnCpf
-            // 
-            this.ColumnCpf.HeaderText = "CPF";
-            this.ColumnCpf.Name = "ColumnCpf";
-            this.ColumnCpf.ReadOnly = true;
             // 
             // ColumnDataNascimento
             // 
@@ -182,10 +182,10 @@
         private Button buttonCadastrar;
         private DataGridViewTextBoxColumn ColumnId;
         private DataGridViewTextBoxColumn ColumnNome;
+        private DataGridViewTextBoxColumn ColumnCpf;
         private DataGridViewTextBoxColumn ColumnCargo;
         private DataGridViewTextBoxColumn ColumnSalario;
         private DataGridViewTextBoxColumn ColumnDataAdmissao;
-        private DataGridViewTextBoxColumn ColumnCpf;
         private DataGridViewTextBoxColumn ColumnDataNascimento;
         private DataGridViewTextBoxColumn ColumnCep;
         private DataGridViewTextBoxColumn ColumnEndereco;
