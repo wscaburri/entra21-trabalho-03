@@ -38,7 +38,7 @@ namespace entra21_trabalho_03.Views
 
         private void buttonCadastroProduto_Click(object sender, EventArgs e)
         {
-            var produtoForm = new ProdutoCadastroEdicaoForm();
+            var produtoForm = new ProdutoListagemForm();
             produtoForm.ShowDialog();
         }
 

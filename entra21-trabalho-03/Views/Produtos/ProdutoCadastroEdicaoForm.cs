@@ -55,14 +55,14 @@ namespace entra21_trabalho_03.Views.Produtos
 
             var nome = textBoxNomeProduto.Text.Trim();
             var tipoProduto = comboBoxTipoProduto.SelectedItem as TipoProduto1;
-            var dataVencimento = dateTimePicker1;
-            var preco = maskedTextBox1.Text;
+            var dataVencimento = dateTimePicker1.Value;
+            var preco = numericUpDown1.Value;
 
             var produto = new Produto1();
             produto.Nome = nome;
             produto.TipoProduto = tipoProduto;
-            produto.DataVencimento = Convert.ToDateTime(dataVencimento);
-            produto.Preco = Convert.ToDecimal(preco);
+            produto.DataVencimento = dataVencimento;
+            produto.Preco = preco;
 
             var produtoService = new ProdutoService();
 

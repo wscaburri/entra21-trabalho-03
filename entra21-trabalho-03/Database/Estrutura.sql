@@ -84,3 +84,12 @@ INSERT INTO estoque_produto (nome, quantidade_produto, validade_produto, data_pr
 	VALUES
 		('respiridona', 15, '2024/05/14', '2022/07/26');
 
+SELECT 
+p.id AS 'id',
+p.nome AS 'nome',
+tp.nome AS 'tipo_produto_nome',
+p.data_vencimento AS 'data_validade',
+p.preco AS 'preço',
+p.id_tipo_produto
+FROM produto AS p
+INNER JOIN tipo_produto AS tp ON(p.id_tipo_produto = tp.id);

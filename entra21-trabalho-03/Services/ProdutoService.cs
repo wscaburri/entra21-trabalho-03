@@ -24,7 +24,7 @@ namespace entra21_trabalho_03.Services
             var conexao = new Conexao().Conectar();
             var comando = conexao.CreateCommand();
             comando.CommandText = 
-                "INSERT INTO produto (id_tipo_produto, nome, data_vencimento, preco) VALUES (@ID_TIPO_PRODUTO, @NOME, @DATA_VENCIMENTO, PRECO);";
+                "INSERT INTO produto (id_tipo_produto, nome, data_vencimento, preco) VALUES (@ID_TIPO_PRODUTO, @NOME, @DATA_VENCIMENTO, @PRECO);";
 
             comando.Parameters.AddWithValue("@ID_TIPO_PRODUTO", produto.TipoProduto.Id);
             comando.Parameters.AddWithValue("@NOME", produto.Nome);
@@ -89,10 +89,12 @@ namespace entra21_trabalho_03.Services
             comando.CommandText = @"SELECT 
 p.id AS 'id',
 p.nome AS 'nome',
-tp.id AS 'tipo_produto_id',
-tp.tipo AS 'tipo_produto_nome',
+tp.nome AS 'tipo_produto_nome',
+p.data_vencimento AS 'data_validade',
+p.preco AS 'preço',
+p.id_tipo_produto
 FROM produto AS p
-INNER JOIN tipos_produto AS tp ON(p.id_tipo_produto = tp.id)";
+INNER JOIN tipo_produto AS tp ON(p.id_tipo_produto = tp.id)";
 
             var tabelaEmMemoria = new DataTable();
 
@@ -107,10 +109,12 @@ INNER JOIN tipos_produto AS tp ON(p.id_tipo_produto = tp.id)";
                 var produto = new Produto1();
                 produto.Id = Convert.ToInt32(registro["id"]);
                 produto.Nome = registro["nome"].ToString();
+                produto.DataVencimento = Convert.ToDateTime(registro["data_validade"]);
+                produto.Preco = Convert.ToDecimal(registro["preço"]);
 
                 produto.TipoProduto = new TipoProduto1();
-                produto.TipoProduto.Id = Convert.ToInt32(registro["tipo_personagem_id"]);
-                produto.TipoProduto.Nome = registro["tipo_personagem_tipo"].ToString();
+                produto.TipoProduto.Id = Convert.ToInt32(registro["id_tipo_produto"]);
+                produto.TipoProduto.Nome = registro["tipo_produto_nome"].ToString();
 
                 produtos.Add(produto);
             }
