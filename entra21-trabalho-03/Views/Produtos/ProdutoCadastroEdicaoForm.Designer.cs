@@ -158,7 +158,7 @@
             this.Controls.Add(this.labelNomeProduto);
             this.Controls.Add(this.textBoxNomeProduto);
             this.Name = "ProdutoCadastroEdicaoForm";
-            this.Text = "ProdutoCadastroEdicaoForm";
+            this.Text = "Cadastro de Produto";
             this.ResumeLayout(false);
             this.PerformLayout();
 
