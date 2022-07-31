@@ -57,6 +57,14 @@ namespace entra21_trabalho_03.Views.Funcionarios
                 return;
             }
 
+            var apagarRegistro = MessageBox.Show("Deseja realmente apagar o registro do funcionário?", "ALERTA", MessageBoxButtons.YesNo);
+
+            if (apagarRegistro != DialogResult.Yes)
+            {
+                MessageBox.Show("Operação Cancelada. O registro continua salvo!");
+                return;
+            }
+
             var linhaSelecionada = dataGridViewFuncionarios.SelectedRows[0];
 
             var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);

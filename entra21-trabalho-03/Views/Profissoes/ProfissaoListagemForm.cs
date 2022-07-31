@@ -74,13 +74,29 @@ namespace entra21_trabalho_03.Views.Profissoes
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
+            if (dataGridViewProfissoes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um Funcionário!");
+                return;
+            }
+
+            var apagarRegistro = MessageBox.Show("Deseja realmente apagar o registro desse cargo?", "ALERTA", MessageBoxButtons.YesNo);
+
+            if (apagarRegistro != DialogResult.Yes)
+            {
+                MessageBox.Show("Operação Cancelada. O registro continua salvo!");
+                return;
+            }
+
+            var linhaSelecionada = dataGridViewProfissoes.SelectedRows[0];
+
             var id = Convert.ToInt32(dataGridViewProfissoes.SelectedRows[0].Cells[0].Value);
 
             profissaoService.Apagar(id);
 
             AtualizarRegistrosDataGridView();
 
-            MessageBox.Show("Registro de profissão apagado com sucesso!");
+            MessageBox.Show("Registro de cargo apagado com sucesso!");
         }
     }
 }

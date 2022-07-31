@@ -1,5 +1,7 @@
-﻿using entra21_trabalho_03.Models;
+﻿using entra21_trabalho_03.Enums;
+using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
+using Newtonsoft.Json;
 
 namespace entra21_trabalho_03.Views.Funcionarios
 {
@@ -104,6 +106,32 @@ namespace entra21_trabalho_03.Views.Funcionarios
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ObterDadosCep()
+        {
+            var cep = maskedTextBoxCep.Text.Replace("-", "").Trim();
+
+            if (cep.Length != 8)
+                return;
+
+            var httpClient = new HttpClient();
+
+            var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
+
+            if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var resposta = resultado.Content.ReadAsStringAsync().Result;
+
+                var dadosEndereco = JsonConvert.DeserializeObject<EnderecoDadosRequisitos>(resposta);
+
+                textBoxEndereco.Text = $"{dadosEndereco.Logradouro}, {dadosEndereco.Bairro} - {dadosEndereco.Localidade}, {dadosEndereco.Uf}";
+            }
+        }
+
+        private void maskedTextBoxCep_Leave(object sender, EventArgs e)
+        {
+            ObterDadosCep();
         }
     }
 }
