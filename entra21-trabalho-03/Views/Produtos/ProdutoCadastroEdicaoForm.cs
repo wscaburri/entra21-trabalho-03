@@ -77,7 +77,7 @@ namespace entra21_trabalho_03.Views.Produtos
             {
                 produtoService.Cadastrar(produto);
 
-                MessageBox.Show("Produto cadastrado com sucesso");
+                CustomMessageBox.ShowSuccess("Produto cadastrado com sucesso");
                 Close();
             }
             else
@@ -86,7 +86,7 @@ namespace entra21_trabalho_03.Views.Produtos
 
                 produtoService.Editar(produto);
 
-                MessageBox.Show("Produto alterado com sucesso");
+                CustomMessageBox.ShowSuccess("Produto alterado com sucesso");
                 Close();
             }
 

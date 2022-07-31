@@ -38,7 +38,7 @@ namespace entra21_trabalho_03.Views.TipoProduto
             {
                 tipoProdutoService.Cadastrar(tipoProduto);
 
-                MessageBox.Show("Tipo de produto salvo");
+                CustomMessageBox.ShowSuccess("Tipo de produto salvo");
 
                 Close();
 
@@ -48,7 +48,7 @@ namespace entra21_trabalho_03.Views.TipoProduto
             tipoProduto.Id = idEdicao;
             tipoProdutoService.Editar(tipoProduto);
 
-            MessageBox.Show("Tipo de produto alterado com sucesso");
+            CustomMessageBox.ShowSuccess("Tipo de produto alterado com sucesso");
 
             Close();
         }
