@@ -1,5 +1,6 @@
 ﻿using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.Profissoes
 {
@@ -31,7 +32,7 @@ namespace entra21_trabalho_03.Views.Profissoes
             {
                 profissaoService.Cadastrar(profissao);
 
-                MessageBox.Show("Cargo cadastrado com sucesso!");
+                CustomMessageBox.ShowSuccess("Cargo cadastrado com sucesso!");
 
                 Close();
 
@@ -41,7 +42,7 @@ namespace entra21_trabalho_03.Views.Profissoes
             profissao.Id = _idEdicao;
             profissaoService.Editar(profissao);
 
-            MessageBox.Show("Cargo alterado com sucesso!");
+            CustomMessageBox.ShowSuccess("Cargo alterado com sucesso!");
 
             Close();
         }

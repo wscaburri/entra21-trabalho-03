@@ -1,4 +1,5 @@
 ﻿using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.Profissoes
 {
@@ -49,19 +50,17 @@ namespace entra21_trabalho_03.Views.Profissoes
         {
             if (dataGridViewProfissoes.Rows.Count == 0)
             {
-                MessageBox.Show("Cadastre algum cargo!");
+                CustomMessageBox.ShowWarning("Cadastre algum cargo!");
                 return;
             }
 
             if (dataGridViewProfissoes.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione algum cargo!");
+                CustomMessageBox.ShowWarning("Selecione algum cargo!");
                 return;
             }
 
-            var linhaSelecionada = dataGridViewProfissoes.SelectedRows[0];
-
-            var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            var id = Convert.ToInt32(dataGridViewProfissoes.SelectedRows[0].Cells[0].Value);
 
             var profissao = profissaoService.ObterPorId(id);
 
@@ -76,27 +75,32 @@ namespace entra21_trabalho_03.Views.Profissoes
         {
             if (dataGridViewProfissoes.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um Funcionário!");
+                CustomMessageBox.ShowWarning("Selecione algum cargo!");
                 return;
             }
 
-            var apagarRegistro = MessageBox.Show("Deseja realmente apagar o registro desse cargo?", "ALERTA", MessageBoxButtons.YesNo);
-
-            if (apagarRegistro != DialogResult.Yes)
+            try
             {
-                MessageBox.Show("Operação Cancelada. O registro continua salvo!");
-                return;
+                var apagarRegistro = MessageBox.Show("Deseja realmente apagar o registro desse cargo?", "ALERTA", MessageBoxButtons.YesNo);
+
+                if (apagarRegistro != DialogResult.Yes)
+                {
+                    CustomMessageBox.ShowError("Operação Cancelada. O registro continua salvo!");
+                    return;
+                }
+
+                var id = Convert.ToInt32(dataGridViewProfissoes.SelectedRows[0].Cells[0].Value);
+
+                profissaoService.Apagar(id);
+
+                AtualizarRegistrosDataGridView();
+
+                CustomMessageBox.ShowSuccess("Registro de cargo apagado com sucesso!");
             }
-
-            var linhaSelecionada = dataGridViewProfissoes.SelectedRows[0];
-
-            var id = Convert.ToInt32(dataGridViewProfissoes.SelectedRows[0].Cells[0].Value);
-
-            profissaoService.Apagar(id);
-
-            AtualizarRegistrosDataGridView();
-
-            MessageBox.Show("Registro de cargo apagado com sucesso!");
+            catch (Exception)
+            {
+                CustomMessageBox.ShowError("Operação não permitida. Cargo vinculado à um Funcionário!");
+            }
         }
     }
 }

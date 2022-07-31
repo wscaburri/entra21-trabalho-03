@@ -1,4 +1,5 @@
 ﻿using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.Funcionarios
 {
@@ -61,13 +62,11 @@ namespace entra21_trabalho_03.Views.Funcionarios
 
             if (apagarRegistro != DialogResult.Yes)
             {
-                MessageBox.Show("Operação Cancelada. O registro continua salvo!");
+                CustomMessageBox.ShowError("Operação Cancelada. O registro continua salvo!");
                 return;
             }
 
-            var linhaSelecionada = dataGridViewFuncionarios.SelectedRows[0];
-
-            var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            var id = Convert.ToInt32(dataGridViewFuncionarios.SelectedRows[0].Cells[0].Value);
 
             _funcionarioService.Apagar(id);
 
@@ -84,9 +83,7 @@ namespace entra21_trabalho_03.Views.Funcionarios
                 return;
             }
 
-            var linhaSelecionada = dataGridViewFuncionarios.SelectedRows[0];
-
-            var id = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            var id = Convert.ToInt32(dataGridViewFuncionarios.SelectedRows[0].Cells[0].Value);
 
             var funcionario = _funcionarioService.ObterPorId(id);
 

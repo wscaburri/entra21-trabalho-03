@@ -1,6 +1,7 @@
 ﻿using entra21_trabalho_03.Enums;
 using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 using Newtonsoft.Json;
 
 namespace entra21_trabalho_03.Views.Funcionarios
@@ -56,12 +57,6 @@ namespace entra21_trabalho_03.Views.Funcionarios
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if (comboBoxCargo.SelectedIndex == -1)
-            {
-                MessageBox.Show("Selecione um Cargo!");
-                return;
-            }
-
             var nome = textBoxNomeCompleto.Text.Trim();
             var cpf = maskedTextBoxCpf.Text.Trim();
             var dataNascimento = dateTimePickerDataNascimento.Value;
@@ -71,6 +66,11 @@ namespace entra21_trabalho_03.Views.Funcionarios
             var cargo = comboBoxCargo.SelectedItem as Profissao;
             var dataAdmissao = dateTimePickerDataAdmissao.Value;
             var salario = maskedTextBoxSalario.Text.Trim();
+
+            var validarDados = ValidarDadosFuncionarios();
+
+            if (validarDados == false)
+                return;
 
             var funcionario = new Funcionario();
             funcionario.NomeCompleto = nome;
@@ -89,7 +89,7 @@ namespace entra21_trabalho_03.Views.Funcionarios
             {
                 funcionarioService.Cadastrar(funcionario);
 
-                MessageBox.Show("Funcionário cadastrado com sucesso!");
+                CustomMessageBox.ShowSuccess("Funcionário cadastrado com sucesso!");
                 Close();
             }
             else
@@ -98,7 +98,7 @@ namespace entra21_trabalho_03.Views.Funcionarios
 
                 funcionarioService.Editar(funcionario);
 
-                MessageBox.Show("Funcionário alterado com sucesso!");
+                CustomMessageBox.ShowSuccess("Funcionário alterado com sucesso!");
                 Close();
             }
         }
@@ -132,6 +132,65 @@ namespace entra21_trabalho_03.Views.Funcionarios
         private void maskedTextBoxCep_Leave(object sender, EventArgs e)
         {
             ObterDadosCep();
+        }
+
+        private bool ValidarDadosFuncionarios()
+        {
+            if (textBoxNomeCompleto.Text.Length < 3)
+            {
+                CustomMessageBox.ShowError("Nome Completo deve conter pelo menos 3 caracteres!");
+                return false;
+            }
+
+            if (maskedTextBoxCpf.Text.Length != 14)
+            {
+                CustomMessageBox.ShowError("CPF deve conter 11 digitos!");
+                return false;
+            }
+
+            if (dateTimePickerDataNascimento.Value > DateTime.Now)
+            {
+                CustomMessageBox.ShowError("Data de Nascimento não pode ser maior que a data atual!");
+                return false;
+            }
+
+            if (maskedTextBoxCep.Text.Length != 9)
+            {
+                CustomMessageBox.ShowError("CEP deve conter 8 digitos!");
+                return false;
+            }
+
+            if (textBoxEndereco.Text.Length == 0)
+            {
+                CustomMessageBox.ShowError("Informe um Endereço válido!");
+                return false;
+            }
+
+            if (textBoxNumero.Text.Length == 0)
+            {
+                CustomMessageBox.ShowError("Informe o número da residência!");
+                return false;
+            }
+
+            if (comboBoxCargo.SelectedIndex == -1)
+            {
+                CustomMessageBox.ShowWarning("Selecione um Cargo!");
+                return false;
+            }
+
+            if (dateTimePickerDataAdmissao.Value > DateTime.Now)
+            {
+                CustomMessageBox.ShowError("Data de Admissão não pode ser maior que a data atual!");
+                return false;
+            }
+
+            if (maskedTextBoxSalario.Text.Length == 0)
+            {
+                CustomMessageBox.ShowError("Informe o salário do funcionário!");
+                return false;
+            }
+
+            return true;
         }
     }
 }
