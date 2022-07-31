@@ -55,7 +55,7 @@
             this.buttonCadastroProfissao.Name = "buttonCadastroProfissao";
             this.buttonCadastroProfissao.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroProfissao.TabIndex = 1;
-            this.buttonCadastroProfissao.Text = "Cadastrao de Profissões";
+            this.buttonCadastroProfissao.Text = "Cadastro de Profissões";
             this.buttonCadastroProfissao.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCadastroProfissao.UseVisualStyleBackColor = true;
             this.buttonCadastroProfissao.Click += new System.EventHandler(this.buttonCadastroProfissao_Click);
