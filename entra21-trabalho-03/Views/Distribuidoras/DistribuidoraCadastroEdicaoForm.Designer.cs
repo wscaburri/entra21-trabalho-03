@@ -224,7 +224,7 @@
             this.Controls.Add(this.buttonSalvar);
             this.Name = "DistribuidoraCadastroEdicaoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro/Edição de Distribuidora";
+            this.Text = "Cadastro de Distribuidora";
             this.ResumeLayout(false);
             this.PerformLayout();
 

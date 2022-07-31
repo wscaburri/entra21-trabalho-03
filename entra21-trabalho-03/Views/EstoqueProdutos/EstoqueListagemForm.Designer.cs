@@ -147,7 +147,7 @@
             this.Controls.Add(this.buttonCadastrar);
             this.Name = "EstoqueListagemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EstoqueListagemForm";
+            this.Text = "Listagem do Estoque";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
