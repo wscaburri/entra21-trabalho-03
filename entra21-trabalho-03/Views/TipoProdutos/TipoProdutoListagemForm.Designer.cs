@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +53,22 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(427, 285);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "Código";
+            this.ColumnID.MinimumWidth = 6;
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 125;
+            // 
+            // ColumnProduto
+            // 
+            this.ColumnProduto.HeaderText = "Tipo do Produto";
+            this.ColumnProduto.MinimumWidth = 6;
+            this.ColumnProduto.Name = "ColumnProduto";
+            this.ColumnProduto.ReadOnly = true;
+            this.ColumnProduto.Width = 125;
             // 
             // buttonEditar
             // 
@@ -83,27 +100,22 @@
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
-            // ColumnID
+            // buttonMenu
             // 
-            this.ColumnID.HeaderText = "Código";
-            this.ColumnID.MinimumWidth = 6;
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 125;
-            // 
-            // ColumnProduto
-            // 
-            this.ColumnProduto.HeaderText = "Tipo do Produto";
-            this.ColumnProduto.MinimumWidth = 6;
-            this.ColumnProduto.Name = "ColumnProduto";
-            this.ColumnProduto.ReadOnly = true;
-            this.ColumnProduto.Width = 125;
+            this.buttonMenu.Location = new System.Drawing.Point(445, 270);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(94, 72);
+            this.buttonMenu.TabIndex = 4;
+            this.buttonMenu.Text = "SAIR";
+            this.buttonMenu.UseVisualStyleBackColor = true;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
             // TipoProdutoListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 354);
+            this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
@@ -123,5 +135,6 @@
         private Button buttonCadastrar;
         private DataGridViewTextBoxColumn ColumnID;
         private DataGridViewTextBoxColumn ColumnProduto;
+        private Button buttonMenu;
     }
 }

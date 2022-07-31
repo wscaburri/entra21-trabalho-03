@@ -1,11 +1,13 @@
 ﻿using entra21_trabalho_03.Models;
 using entra21_trabalho_03.Services;
+using entra21_trabalho_03.Views.Components;
 
 namespace entra21_trabalho_03.Views.Produtos
 {
     public partial class ProdutoCadastroEdicaoForm : Form
     {
         private readonly int _idParaEditar;
+
         public ProdutoCadastroEdicaoForm()
         {
             InitializeComponent();
@@ -47,6 +49,11 @@ namespace entra21_trabalho_03.Views.Produtos
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
+            var validarDados = ValidarDadosProduto();
+
+            if (validarDados == false)
+                return;
+
             if (comboBoxTipoProduto.SelectedIndex == -1)
             {
                 MessageBox.Show("Selecione um tipo de produto");
@@ -88,6 +95,36 @@ namespace entra21_trabalho_03.Views.Produtos
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private bool ValidarDadosProduto()
+        {
+            if(textBoxNomeProduto.Text.Length < 2)
+            {
+                CustomMessageBox.ShowWarning("Nome inválido, digite um nome com mais de 1 letra");
+                textBoxNomeProduto.Focus();
+                return false;
+            }
+            if(comboBoxTipoProduto.SelectedIndex == -1)
+            {
+                CustomMessageBox.ShowWarning("Selecione um tipo de produto");
+                comboBoxTipoProduto.Focus();
+                return false;
+            }
+            if(dateTimePicker1.Value < DateTime.Now)
+            {
+                CustomMessageBox.ShowWarning("Não é possivel cadastrar um produto vencido");
+                dateTimePicker1.Focus();
+                return false;
+            }
+            if(textBox1.Text.Length == 0)
+            {
+                CustomMessageBox.ShowWarning("Informe o preço do produto");
+                textBox1.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -85,5 +85,10 @@ namespace entra21_trabalho_03.Views.TipoProdutos
 
             AtualizarRegistrosDataGridView();
         }
+
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

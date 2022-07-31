@@ -37,12 +37,13 @@
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(218, 330);
+            this.buttonCadastrar.Location = new System.Drawing.Point(99, 330);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(94, 29);
             this.buttonCadastrar.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(342, 330);
+            this.buttonApagar.Location = new System.Drawing.Point(232, 330);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(94, 29);
             this.buttonApagar.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(465, 330);
+            this.buttonEditar.Location = new System.Drawing.Point(364, 330);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(94, 29);
             this.buttonEditar.TabIndex = 2;
@@ -129,11 +130,22 @@
             this.ColumnPreco.ReadOnly = true;
             this.ColumnPreco.Width = 125;
             // 
+            // buttonMenu
+            // 
+            this.buttonMenu.Location = new System.Drawing.Point(603, 330);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(94, 29);
+            this.buttonMenu.TabIndex = 4;
+            this.buttonMenu.Text = "SAIR";
+            this.buttonMenu.UseVisualStyleBackColor = true;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            // 
             // ProdutoListagemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 390);
+            this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonApagar);
@@ -156,5 +168,6 @@
         private DataGridViewTextBoxColumn ColumnTipo;
         private DataGridViewTextBoxColumn ColumnData;
         private DataGridViewTextBoxColumn ColumnPreco;
+        private Button buttonMenu;
     }
 }

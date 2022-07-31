@@ -93,5 +93,10 @@ namespace entra21_trabalho_03.Views.Produtos
 
             return string.Format(cultura, "R$ {0:N}", valor);
         }
+
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

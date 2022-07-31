@@ -73,6 +73,16 @@ namespace entra21_trabalho_03.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap farmacia__1_ {
+            get {
+                object obj = ResourceManager.GetObject("farmacia (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inventory {
             get {
                 object obj = ResourceManager.GetObject("inventory", resourceCulture);
@@ -86,6 +96,16 @@ namespace entra21_trabalho_03.Properties {
         internal static System.Drawing.Bitmap pharmacy {
             get {
                 object obj = ResourceManager.GetObject("pharmacy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap produto_natural {
+            get {
+                object obj = ResourceManager.GetObject("produto-natural", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
