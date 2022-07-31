@@ -38,33 +38,34 @@
             // 
             // buttonCadastroCliente
             // 
-            this.buttonCadastroCliente.Location = new System.Drawing.Point(16, 44);
-            this.buttonCadastroCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCadastroCliente.Image = global::entra21_trabalho_03.Properties.Resources.carteira_de_identidade;
+            this.buttonCadastroCliente.Location = new System.Drawing.Point(197, 33);
             this.buttonCadastroCliente.Name = "buttonCadastroCliente";
-            this.buttonCadastroCliente.Size = new System.Drawing.Size(184, 151);
+            this.buttonCadastroCliente.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroCliente.TabIndex = 0;
             this.buttonCadastroCliente.Text = "Cadastro de Funcionários";
+            this.buttonCadastroCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCadastroCliente.UseVisualStyleBackColor = true;
             this.buttonCadastroCliente.Click += new System.EventHandler(this.buttonCadastroCliente_Click);
             // 
             // buttonCadastroProfissao
             // 
-            this.buttonCadastroProfissao.Location = new System.Drawing.Point(225, 44);
-            this.buttonCadastroProfissao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCadastroProfissao.Image = global::entra21_trabalho_03.Properties.Resources.pasta;
+            this.buttonCadastroProfissao.Location = new System.Drawing.Point(14, 33);
             this.buttonCadastroProfissao.Name = "buttonCadastroProfissao";
-            this.buttonCadastroProfissao.Size = new System.Drawing.Size(184, 151);
+            this.buttonCadastroProfissao.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroProfissao.TabIndex = 1;
-            this.buttonCadastroProfissao.Text = "Cadastrar Profissões";
+            this.buttonCadastroProfissao.Text = "Cadastrao de Profissões";
+            this.buttonCadastroProfissao.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCadastroProfissao.UseVisualStyleBackColor = true;
             this.buttonCadastroProfissao.Click += new System.EventHandler(this.buttonCadastroProfissao_Click);
             // 
             // buttonTipoProduto
             // 
             this.buttonTipoProduto.Image = global::entra21_trabalho_03.Properties.Resources.produto_natural;
-            this.buttonTipoProduto.Location = new System.Drawing.Point(431, 44);
-            this.buttonTipoProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonTipoProduto.Location = new System.Drawing.Point(377, 33);
             this.buttonTipoProduto.Name = "buttonTipoProduto";
-            this.buttonTipoProduto.Size = new System.Drawing.Size(184, 151);
+            this.buttonTipoProduto.Size = new System.Drawing.Size(161, 113);
             this.buttonTipoProduto.TabIndex = 2;
             this.buttonTipoProduto.Text = "Cadastro de Tipo de Produto";
             this.buttonTipoProduto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -74,10 +75,9 @@
             // buttonCadastroProduto
             // 
             this.buttonCadastroProduto.Image = global::entra21_trabalho_03.Properties.Resources.farmacia__1_;
-            this.buttonCadastroProduto.Location = new System.Drawing.Point(16, 237);
-            this.buttonCadastroProduto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCadastroProduto.Location = new System.Drawing.Point(14, 178);
             this.buttonCadastroProduto.Name = "buttonCadastroProduto";
-            this.buttonCadastroProduto.Size = new System.Drawing.Size(184, 151);
+            this.buttonCadastroProduto.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroProduto.TabIndex = 3;
             this.buttonCadastroProduto.Text = "Cadastro de Produtos";
             this.buttonCadastroProduto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -88,10 +88,9 @@
             // 
             this.buttonCadastrarDistribuidora.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCadastrarDistribuidora.Image = global::entra21_trabalho_03.Properties.Resources.pharmacy;
-            this.buttonCadastrarDistribuidora.Location = new System.Drawing.Point(225, 237);
-            this.buttonCadastrarDistribuidora.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCadastrarDistribuidora.Location = new System.Drawing.Point(197, 178);
             this.buttonCadastrarDistribuidora.Name = "buttonCadastrarDistribuidora";
-            this.buttonCadastrarDistribuidora.Size = new System.Drawing.Size(184, 151);
+            this.buttonCadastrarDistribuidora.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastrarDistribuidora.TabIndex = 4;
             this.buttonCadastrarDistribuidora.Text = "Cadastro de Distribuidora";
             this.buttonCadastrarDistribuidora.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -102,10 +101,9 @@
             // 
             this.buttonCadastroEstoque.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCadastroEstoque.Image = global::entra21_trabalho_03.Properties.Resources.inventory;
-            this.buttonCadastroEstoque.Location = new System.Drawing.Point(431, 237);
-            this.buttonCadastroEstoque.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCadastroEstoque.Location = new System.Drawing.Point(377, 178);
             this.buttonCadastroEstoque.Name = "buttonCadastroEstoque";
-            this.buttonCadastroEstoque.Size = new System.Drawing.Size(184, 151);
+            this.buttonCadastroEstoque.Size = new System.Drawing.Size(161, 113);
             this.buttonCadastroEstoque.TabIndex = 5;
             this.buttonCadastroEstoque.Text = "Cadastro de Estoque";
             this.buttonCadastroEstoque.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -114,16 +112,15 @@
             // 
             // MenuPrincipalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 400);
+            this.ClientSize = new System.Drawing.Size(543, 300);
             this.Controls.Add(this.buttonCadastroEstoque);
             this.Controls.Add(this.buttonCadastrarDistribuidora);
             this.Controls.Add(this.buttonCadastroProduto);
             this.Controls.Add(this.buttonTipoProduto);
             this.Controls.Add(this.buttonCadastroProfissao);
             this.Controls.Add(this.buttonCadastroCliente);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MenuPrincipalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
