@@ -32,8 +32,8 @@ namespace entra21_trabalho_03.Views.Funcionarios
                     funcionario.Cpf,
                     funcionario.Profissao.Cargo,
                     funcionario.Salario,
-                    funcionario.DataAdmissao,
-                    funcionario.DataNascimento,
+                    funcionario.DataAdmissao.ToString("dd/MM/yyyy"),
+                    funcionario.DataNascimento.ToString("dd/MM/yyyy"),
                     funcionario.Cep,
                     funcionario.Endereco,
                     funcionario.Numero
