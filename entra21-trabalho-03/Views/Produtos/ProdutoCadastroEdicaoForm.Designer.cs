@@ -37,9 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxNomeProduto
@@ -100,7 +99,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(313, 134);
+            this.label4.Location = new System.Drawing.Point(330, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 23);
             this.label4.TabIndex = 7;
@@ -126,14 +125,6 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(330, 157);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(107, 27);
-            this.numericUpDown1.TabIndex = 11;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -143,13 +134,20 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "R$";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(330, 156);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(125, 27);
+            this.textBox1.TabIndex = 13;
+            // 
             // ProdutoCadastroEdicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 272);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.label4);
@@ -161,7 +159,6 @@
             this.Controls.Add(this.textBoxNomeProduto);
             this.Name = "ProdutoCadastroEdicaoForm";
             this.Text = "ProdutoCadastroEdicaoForm";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +175,7 @@
         private Label label4;
         private Button buttonSalvar;
         private Button buttonCancelar;
-        private NumericUpDown numericUpDown1;
         private Label label1;
+        private TextBox textBox1;
     }
 }

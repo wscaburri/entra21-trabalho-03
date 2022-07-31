@@ -1,4 +1,5 @@
 ﻿using entra21_trabalho_03.Services;
+using System.Globalization;
 
 namespace entra21_trabalho_03.Views.Produtos
 {
@@ -30,8 +31,8 @@ namespace entra21_trabalho_03.Views.Produtos
                     produtos.Id,
                     produtos.Nome,
                     produtos.TipoProduto.Nome,
-                    produtos.DataVencimento,
-                    produtos.Preco
+                    produtos.DataVencimento.ToString("dd/MM/yyyy"),
+                    ObterValorFormatado(produtos.Preco)
                 });
             }
         }
@@ -81,6 +82,16 @@ namespace entra21_trabalho_03.Views.Produtos
             produtoForm.ShowDialog();
 
             PreencherDataGridViewComProdutoCadastrado();
+        }
+
+        public static string ObterValorFormatado(decimal valor)
+        {
+            var cultura = new CultureInfo("pt-BR");
+            cultura.NumberFormat.NumberDecimalDigits = 2;
+            cultura.NumberFormat.NumberDecimalSeparator = ",";
+            cultura.NumberFormat.CurrencyGroupSeparator = ".";
+
+            return string.Format(cultura, "R$ {0:N}", valor);
         }
     }
 }

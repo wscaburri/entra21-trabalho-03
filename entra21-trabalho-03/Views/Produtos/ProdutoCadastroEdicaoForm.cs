@@ -56,7 +56,7 @@ namespace entra21_trabalho_03.Views.Produtos
             var nome = textBoxNomeProduto.Text.Trim();
             var tipoProduto = comboBoxTipoProduto.SelectedItem as TipoProduto1;
             var dataVencimento = dateTimePicker1.Value;
-            var preco = numericUpDown1.Value;
+            var preco = Convert.ToDecimal(textBox1.Text);
 
             var produto = new Produto1();
             produto.Nome = nome;

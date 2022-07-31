@@ -1,6 +1,7 @@
 ﻿using entra21_trabalho_03.Database;
 using entra21_trabalho_03.Models;
 using System.Data;
+using System.Globalization;
 
 namespace entra21_trabalho_03.Services
 {
@@ -119,6 +120,34 @@ INNER JOIN tipo_produto AS tp ON(p.id_tipo_produto = tp.id)";
                 produtos.Add(produto);
             }
             return produtos;
+        }
+
+        public Produto1 ObterPeloTipo(string nomeTipoProduto)
+        {
+            var conexao = new Conexao().Conectar();
+            var comando = conexao.CreateCommand();
+            comando.CommandText = "SELECT id, id_tipo_produto, nome, data_vencimento, preco FROM produto WHERE nome = @NOME";
+            comando.Parameters.AddWithValue("@NOME", nomeTipoProduto);
+
+            var dataTable = new DataTable();
+
+            dataTable.Load(comando.ExecuteReader());
+
+            if (dataTable.Rows.Count == 0)
+                return null;
+
+            var registro = dataTable.Rows[0];
+            var produto = new Produto1();
+            produto.Id = Convert.ToInt32(registro["id"]);
+
+            produto.TipoProduto = new TipoProduto1();
+            produto.TipoProduto.Id = Convert.ToInt32(registro["id_tipo_produto"]);
+
+            produto.Nome = registro["nome"].ToString();
+
+            conexao.Close();
+
+            return produto;
         }
     }
 }

@@ -30,7 +30,7 @@ CREATE TABLE produto(
 
 	nome VARCHAR(100),
 	data_vencimento DATETIME2,
-	preco DECIMAL
+	preco DECIMAL(8,2)
 	
 	FOREIGN KEY (id_tipo_produto) REFERENCES tipo_produto(id));
 
@@ -59,7 +59,7 @@ SELECT * FROM distribuidora;
 INSERT INTO distribuidora(nome, cnpj, cidade, bairro, logradouro, numero) VALUES
 ('Tete', '18968241000194', 'Bc City', 'Zendron', 'Rua Antonio', 587);
 
-DROP TABLE estoque_produto;
+DROP TABLE tipo_produto;
 
 CREATE TABLE estoque_produto(
 	id INTEGER PRIMARY KEY IDENTITY(1,1),
