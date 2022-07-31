@@ -104,7 +104,7 @@
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonApagar);
             this.Name = "ProfissaoListagemForm";
-            this.Text = "ProfissaoListagemForm";
+            this.Text = "Listagem de Profissões";
             this.Load += new System.EventHandler(this.ProfissaoListagemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProfissoes)).EndInit();
             this.ResumeLayout(false);

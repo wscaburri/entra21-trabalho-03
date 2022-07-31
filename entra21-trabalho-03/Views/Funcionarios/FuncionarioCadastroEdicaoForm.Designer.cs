@@ -247,7 +247,7 @@
             this.Controls.Add(this.textBoxNomeCompleto);
             this.Controls.Add(this.labelNomeCompleto);
             this.Name = "FuncionarioCadastroEdicaoForm";
-            this.Text = "FuncionarioCadastroEdicaoForm";
+            this.Text = "Cadastro e Edição de Funcionários";
             this.ResumeLayout(false);
             this.PerformLayout();
 

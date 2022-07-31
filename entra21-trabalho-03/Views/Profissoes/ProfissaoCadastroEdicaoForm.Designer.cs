@@ -80,7 +80,7 @@
             this.Controls.Add(this.textBoxCargo);
             this.Controls.Add(this.labelCargo);
             this.Name = "ProfissaoCadastroEdicaoForm";
-            this.Text = "ProfissaoCadastroEdicaoForm";
+            this.Text = "Cadastro e Edição de Profissões";
             this.ResumeLayout(false);
             this.PerformLayout();
 
