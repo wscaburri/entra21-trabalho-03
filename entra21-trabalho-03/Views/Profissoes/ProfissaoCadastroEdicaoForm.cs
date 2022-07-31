@@ -23,6 +23,11 @@ namespace entra21_trabalho_03.Views.Profissoes
         {
             var cargo = textBoxCargo.Text.Trim();
 
+            var validarDados = ValidarDadosProfissoes();
+
+            if (validarDados == false)
+                return;
+
             var profissao = new Profissao();
             profissao.Cargo = cargo;
 
@@ -50,6 +55,18 @@ namespace entra21_trabalho_03.Views.Profissoes
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private bool ValidarDadosProfissoes()
+        {
+            if (textBoxCargo.Text.Length < 2)
+            {
+                CustomMessageBox.ShowWarning("O cargo deve conter no mínimo 2 caracteres!");
+                textBoxCargo.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }

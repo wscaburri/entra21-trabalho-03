@@ -186,7 +186,7 @@ namespace entra21_trabalho_03.Views.Funcionarios
 
             if (maskedTextBoxSalario.Text.Length == 0)
             {
-                CustomMessageBox.ShowError("Informe o salário do funcionário!");
+                CustomMessageBox.ShowWarning("Informe o salário do funcionário!");
                 return false;
             }
 

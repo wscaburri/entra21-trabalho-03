@@ -54,7 +54,7 @@ namespace entra21_trabalho_03.Views.Funcionarios
         {
             if (dataGridViewFuncionarios.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um Funcionário!");
+                CustomMessageBox.ShowWarning("Selecione um Funcionário!");
                 return;
             }
 
@@ -72,14 +72,14 @@ namespace entra21_trabalho_03.Views.Funcionarios
 
             PreencherDataGridViewComFuncionarios();
 
-            MessageBox.Show("Funcionário removido com sucesso!");
+            CustomMessageBox.ShowSuccess("Funcionário removido com sucesso!");
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             if (dataGridViewFuncionarios.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione algum Funcionário!");
+                CustomMessageBox.ShowWarning("Selecione algum Funcionário!");
                 return;
             }
 
